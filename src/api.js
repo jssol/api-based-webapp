@@ -6,6 +6,15 @@ const getData = async (movie = 'the flash') => {
   return moviesInfo.Search;
 };
 
+// const movies = [];
+// getData().then((data) => {
+//   data.forEach((movie) => {
+//     movies.push(movie);
+//   });
+// });
+
+// console.log(movies);
+
 const getMovieData = async (movie) => {
   const key = 'e7db26be';
 
