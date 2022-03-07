@@ -1,8 +1,18 @@
-body {
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* body {
   background: #191919;
 }
 
 #titre {
   color: skyblue;
   font-size: 10em;
+} */
+
+.custom {
+  color: skyblue;
+  font-size: 10em;
+  background: #191919;
 }
