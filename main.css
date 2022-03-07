@@ -1,11 +1,91 @@
 /*!*****************************************************************!*\
   !*** css ./node_modules/css-loader/dist/cjs.js!./src/index.css ***!
   \*****************************************************************/
+/* Css reset */
+
+*,
+*::after,
+*::before {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
 body {
+  width: 100vw;
+  overflow-x: hidden;
+  color: #191919;
+  background-color: #e5e5e5;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+/* Header section */
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 1em 2em;
+  width: 100%;
+  border-bottom: 2px #191919 solid;
+}
+
+.logo {
+  border: 3px #191919 solid;
+  border-radius: 50%;
+  padding: 1.5em;
+  width: 2em;
+  height: 2em;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.nav {
+  display: flex;
+  align-items: center;
+  margin-left: 2em;
+}
+
+.nav-list {
+  display: flex;
+  align-items: center;
+}
+
+.nav-list-item {
+  padding: 0.5em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.nav-list-item + .nav-list-item {
+  margin-left: 0.75em;
+}
+
+/* End Header section */
+
+/* Main Section */
+
+.custom {
+  color: skyblue;
+  font-size: 5em;
   background: #191919;
 }
 
-#titre {
-  color: skyblue;
-  font-size: 10em;
+/* End Main Section */
+
+
+/* Footer Section */
+
+.footer {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 1em 2em;
+  width: 100%;
+  border-top: 2px #191919 solid;
+  position: absolute;
+  bottom: 0;
 }
