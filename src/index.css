@@ -93,6 +93,7 @@ body {
 .m-title {
   font-weight: 600;
   font-size: 30px;
+
   /* width: 500px; */
   background-color: rgba(240, 248, 255, 0.7);
   border-radius: 5px;
