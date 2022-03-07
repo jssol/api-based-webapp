@@ -20,5 +20,12 @@
   "bugs": {
     "url": "https://github.com/jssol/api-based-webapp/issues"
   },
-  "homepage": "https://github.com/jssol/api-based-webapp"
+  "homepage": "https://github.com/jssol/api-based-webapp",
+  "devDependencies": {
+    "hint": "^6.1.9",
+    "stylelint": "^13.13.1",
+    "stylelint-config-standard": "^21.0.0",
+    "stylelint-csstree-validator": "^1.9.0",
+    "stylelint-scss": "^3.21.0"
+  }
 }
