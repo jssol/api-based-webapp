@@ -1,0 +1,14 @@
+{
+  "version": "1.0.0",
+  "name": "api-based-webapp",
+  "description": "This project is the second capstone project from Microverse. We had to select an API that provides data about a topic that you like and then build the webapp around it. The webapp will have 2 or 3 user interfaces (depending on the size of your team)",
+  "icons": {
+    "60": "firefox_app_60x60.png",
+    "128": "firefox_app_128x128.png",
+    "512": "firefox_app_512x512.png"
+  },
+  "developer": {
+    "name": "Jonathan Sivahera and Ismael Courr",
+    "url": null
+  }
+}
