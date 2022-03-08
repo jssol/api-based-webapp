@@ -25,6 +25,23 @@ body {
   font-family: Hubballi, sans-serif;
 }
 
+.btn {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+.overlay {
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  z-index: -10;
+  background-image: url(b2c62b938d13c1e94559.jpg);
+  background-position: top;
+  background-size: cover;
+  filter: blur(5px);
+}
+
 /* Header section */
 
 .header {
@@ -74,17 +91,6 @@ body {
 
 /* Main Section */
 
-.overlay {
-  width: 100vw;
-  height: 100vh;
-  position: fixed;
-  z-index: -10;
-  background-image: url(b2c62b938d13c1e94559.jpg);
-  background-position: top;
-  background-size: cover;
-  filter: blur(5px);
-}
-
 #titre {
   color: skyblue;
   font-size: 10em;
@@ -107,7 +113,6 @@ body {
   height: 300px;
   width: 250px;
   border-radius: 10px;
-  cursor: pointer;
 }
 
 .movie-title {
@@ -135,6 +140,41 @@ body {
   margin-left: 10px;
 }
 
+.l-c-buttons {
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-start;
+}
+
+.comment-btn,
+.like-btn {
+  background-color: rgba(62, 62, 62, 0.2);
+  outline: none;
+  border: none;
+  border-radius: 10px;
+  margin-top: 10px;
+  cursor: pointer;
+  box-shadow: 2px 1px 10px #fff;
+}
+
+.comment-btn {
+  padding: 10px;
+  margin-left: 10px;
+}
+
+.like-btn {
+  padding: 7px;
+  color: #fff;
+}
+
+.comment-btn:active,
+.like-btn:active {
+  box-shadow: none;
+}
+
+/* End Main Section */
+
+/* this is the popup */
 .m {
   display: flex;
   background-color: rgba(255, 255, 255, 0.6);
@@ -174,6 +214,70 @@ body {
   margin-left: 50px;
 }
 
+/* Comment popup */
+.movie-details {
+  display: none;
+}
+
+.comment-open .movie-list {
+  display: none;
+}
+
+.comment-open .movie-details {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.pop-close-btn {
+  width: 3em;
+  height: 3em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid #fff;
+  border-radius: 50%;
+  margin: 0.75em auto;
+}
+
+.pop-close,
+.pop-close::after {
+  height: 3px;
+  width: 2em;
+  display: block;
+  background-color: #fff;
+}
+
+.pop-close {
+  position: relative;
+  transform: rotate(45deg);
+}
+
+.pop-close::after {
+  position: absolute;
+  content: '';
+  transform: rotate(90deg);
+}
+
+.m-type-year {
+  list-style: none;
+  display: flex;
+  height: 20px;
+  justify-content: flex-end;
+}
+
+.m-type,
+.m-year {
+  background-color: rgba(62, 62, 62, 0.2);
+  border-radius: 5px;
+  padding: 4px;
+  font-size: 14px;
+  font-weight: 600;
+  margin-left: 10px;
+}
+
+/* End popup section */
+
 /* End Main Section */
 
 /* Footer Section */
@@ -183,9 +287,10 @@ body {
   align-items: center;
   justify-content: flex-start;
   padding: 1em 2em;
+  margin-top: 1em;
   width: 100%;
   border-top: 2px #191919 solid;
-  position: absolute;
+  position: relative;
   bottom: 0;
 }
 
