@@ -147,11 +147,6 @@ body {
   box-shadow: 2px 1px 10px #fff;
 }
 
-.comment-btn:active,
-.like-btn:active {
-  box-shadow: none;
-}
-
 .comment-btn {
   padding: 10px;
   margin-left: 10px;
@@ -160,6 +155,11 @@ body {
 .like-btn {
   padding: 7px;
   color: #fff;
+}
+
+.comment-btn:active,
+.like-btn:active {
+  box-shadow: none;
 }
 
 /* End Main Section */
