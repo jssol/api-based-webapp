@@ -180,6 +180,6 @@ body {
   padding: 1em 2em;
   width: 100%;
   border-top: 2px #191919 solid;
-  position: absolute;
+  position: relative;
   bottom: 0;
 }
