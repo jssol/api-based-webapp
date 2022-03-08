@@ -31,8 +31,7 @@ const showComment = (btn) => {
   page.classList.add('comment-open');
   getMovieData(movie)
     .then((data) => {
-      movieDetails.innerHTML = 
-      `<button class="pop-close-btn btn"><span class="pop-close"></span></button>
+      movieDetails.innerHTML = `<button class="pop-close-btn btn"><span class="pop-close"></span></button>
       <article class="m">
         <img class="m-poster" src="${data.Poster}"/>
         <div class="m-title-plot">
