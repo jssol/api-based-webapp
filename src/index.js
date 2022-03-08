@@ -9,13 +9,11 @@ getData()
     res.forEach((movie) => {
       movieList.innerHTML += `<article class="movie">
                                 <img class="movie-poster" src="${movie.Poster}"/>
-                                <div class="card-title-btn">
-                                  <p class="movie-title">${movie.Title}</p>
-                                  <div class="l-c-buttons">
+                                <div class="l-c-buttons">
                                     <i class="like-btn">&#x2764;</i>
                                     <button class="comment-btn">Comment</button>
                                   </div>
-                                </div>
+                                <p class="movie-title">${movie.Title}</p>
                                 <ul class="type-year">
                                     <li class="movie-type">${movie.Type}</li>
                                     <li class="movie-year">${movie.Year}</li>
