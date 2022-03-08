@@ -5,8 +5,19 @@ const movieList = document.querySelector('.movie-list');
 const movieDetails = document.querySelector('.movie-details');
 const page = document.documentElement;
 
-const displayMovies = () => {
-  getData()
+// Function to count number of element on the page
+const countItems = (arr) => {
+  let count = 0;
+  arr.forEach(() => {
+    count += 1;
+  });
+  const itemCount = document.querySelector('.item-count');
+  itemCount.innerHTML = count;
+  return count;
+};
+
+const displayMovies = (title) => {
+  getData(title)
     .then((res) => {
       res.forEach((movie) => {
         movieList.innerHTML += `<article class="movie">
@@ -22,6 +33,10 @@ const displayMovies = () => {
                                 </ul>
                             </article>`;
       });
+      return res;
+    })
+    .then((movieList) => {
+      countItems(movieList);
     });
 };
 
@@ -29,9 +44,8 @@ const showComment = (btn) => {
   const movie = btn.parentElement.nextElementSibling.innerHTML;
   movieDetails.innerHTML = '';
   page.classList.add('comment-open');
-  getMovieData(movie)
-    .then((data) => {
-      movieDetails.innerHTML = `<button class="pop-close-btn btn"><span class="pop-close"></span></button>
+  getMovieData(movie).then((data) => {
+    movieDetails.innerHTML = `<button class="pop-close-btn btn"><span class="pop-close"></span></button>
       <article class="m">
         <img class="m-poster" src="${data.Poster}"/>
         <div class="m-title-plot">
@@ -43,10 +57,10 @@ const showComment = (btn) => {
             <li class="movie-year">${data.Year}</li>
         </ul>
       </article>`;
-    });
+  });
 };
 
-document.addEventListener('DOMContentLoaded', displayMovies);
+document.addEventListener('DOMContentLoaded', displayMovies('marvel'));
 
 document.addEventListener('click', (e) => {
   if (e.target && e.target.classList.contains('comment-btn')) {
