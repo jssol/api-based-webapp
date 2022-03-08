@@ -130,18 +130,10 @@ body {
   margin-left: 10px;
 }
 
-/* .card-title-btn {
-  width: 100%;
-  display: flex;
-  justify-content: baseline;
-} */
-
 .l-c-buttons {
   display: flex;
-  /* flex-direction: column; */
   align-items: flex-end;
   justify-content: flex-start;
-  /* width: 100px; */
 }
 
 .comment-btn,
