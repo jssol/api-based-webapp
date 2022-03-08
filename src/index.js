@@ -10,6 +10,10 @@ getData()
       movieList.innerHTML += `<article class="movie">
                                 <img class="movie-poster" src="${movie.Poster}"/>
                                 <p class="movie-title">${movie.Title}</p>
+                                <div class="l-c-buttons">
+                                  <button class="comment-btn">Comment</button>
+                                  <i class="like-btn">&#x2764;</i>
+                                </div>
                                 <ul class="type-year">
                                     <li class="movie-type">${movie.Type}</li>
                                     <li class="movie-year">${movie.Year}</li>
@@ -28,9 +32,9 @@ getData()
                                     <p class="m-title">${data.Title}</p>
                                     <p class="m-plot">${data.Plot}</p>
                                 </div>
-                                <ul class="type-year">
-                                    <li class="movie-type">${data.Type}</li>
-                                    <li class="movie-year">${data.Year}</li>
+                                <ul class="m-type-year">
+                                    <li class="m-type">${data.Type}</li>
+                                    <li class="m-year">${data.Year}</li>
                                 </ul>
                             </article>`;
         });

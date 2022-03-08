@@ -20,6 +20,16 @@ body {
   font-family: Hubballi, sans-serif;
 }
 
+.overlay {
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  z-index: -10;
+  background-image: url(./assets/img/bg.jpg);
+  background-position: top;
+  background-size: cover;
+  filter: blur(5px);
+}
 /* Header section */
 
 .header {
@@ -68,17 +78,6 @@ body {
 /* End Header section */
 
 /* Main Section */
-
-.overlay {
-  width: 100vw;
-  height: 100vh;
-  position: fixed;
-  z-index: -10;
-  background-image: url(./assets/img/bg.jpg);
-  background-position: top;
-  background-size: cover;
-  filter: blur(5px);
-}
 
 #titre {
   color: skyblue;
@@ -130,6 +129,9 @@ body {
   margin-left: 10px;
 }
 
+/* End Main Section */
+
+/* this is the popup */
 .m {
   display: flex;
   background-color: rgba(255, 255, 255, 0.6);
@@ -169,7 +171,24 @@ body {
   margin-left: 50px;
 }
 
-/* End Main Section */
+.m-type-year {
+  list-style: none;
+  display: flex;
+  height: 20px;
+  justify-content: flex-end;
+}
+
+.m-type,
+.m-year {
+  background-color: rgba(62, 62, 62, 0.2);
+  border-radius: 5px;
+  padding: 4px;
+  font-size: 14px;
+  font-weight: 600;
+  margin-left: 10px;
+}
+
+/* End popup section */
 
 /* Footer Section */
 
