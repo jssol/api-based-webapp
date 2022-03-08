@@ -195,15 +195,17 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: #fff;
+  border: 1px solid #fff;
+  border-radius: 50%;
+  margin: 0.75em auto;
 }
 
 .pop-close,
-.pop-close::::after {
+.pop-close::after {
   height: 3px;
   width: 2em;
   display: block;
-  background-color: #000;
+  background-color: #fff;
 }
 
 .pop-close {
@@ -214,7 +216,7 @@ body {
 .pop-close::after {
   position: absolute;
   content: '';
-  transform: rotate(-45deg);
+  transform: rotate(90deg);
 }
 
 /* End Main Section */
