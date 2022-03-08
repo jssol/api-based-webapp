@@ -11,19 +11,22 @@ const displayMovies = () => {
       res.forEach((movie) => {
         movieList.innerHTML += `<article class="movie">
                                 <img class="movie-poster" src="${movie.Poster}"/>
+                                <div class="l-c-buttons">
+                                    <i class="like-btn">&#x2764;</i>
+                                    <button class="comment-btn">Comment</button>
+                                </div>
                                 <p class="movie-title">${movie.Title}</p>
                                 <ul class="type-year">
                                     <li class="movie-type">${movie.Type}</li>
                                     <li class="movie-year">${movie.Year}</li>
                                 </ul>
-                                <button class="comment">Comment</button>
                             </article>`;
       });
     });
 };
 
 const showComment = (btn) => {
-  const movie = btn.previousElementSibling.previousElementSibling.innerHTML;
+  const movie = btn.parentElement.nextElementSibling.innerHTML;
   movieDetails.innerHTML = '';
   page.classList.add('comment-open');
   getMovieData(movie)
@@ -47,7 +50,7 @@ const showComment = (btn) => {
 document.addEventListener('DOMContentLoaded', displayMovies);
 
 document.addEventListener('click', (e) => {
-  if (e.target && e.target.classList.contains('comment')) {
+  if (e.target && e.target.classList.contains('comment-btn')) {
     showComment(e.target);
   }
 

@@ -26,6 +26,17 @@ body {
   cursor: pointer;
 }
 
+.overlay {
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  z-index: -10;
+  background-image: url(./assets/img/bg.jpg);
+  background-position: top;
+  background-size: cover;
+  filter: blur(5px);
+}
+
 /* Header section */
 
 .header {
@@ -74,17 +85,6 @@ body {
 /* End Header section */
 
 /* Main Section */
-
-.overlay {
-  width: 100vw;
-  height: 100vh;
-  position: fixed;
-  z-index: -10;
-  background-image: url(./assets/img/bg.jpg);
-  background-position: top;
-  background-size: cover;
-  filter: blur(5px);
-}
 
 #titre {
   color: skyblue;
@@ -135,6 +135,41 @@ body {
   margin-left: 10px;
 }
 
+.l-c-buttons {
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-start;
+}
+
+.comment-btn,
+.like-btn {
+  background-color: rgba(62, 62, 62, 0.2);
+  outline: none;
+  border: none;
+  border-radius: 10px;
+  margin-top: 10px;
+  cursor: pointer;
+  box-shadow: 2px 1px 10px #fff;
+}
+
+.comment-btn {
+  padding: 10px;
+  margin-left: 10px;
+}
+
+.like-btn {
+  padding: 7px;
+  color: #fff;
+}
+
+.comment-btn:active,
+.like-btn:active {
+  box-shadow: none;
+}
+
+/* End Main Section */
+
+/* this is the popup */
 .m {
   display: flex;
   background-color: rgba(255, 255, 255, 0.6);
@@ -219,6 +254,24 @@ body {
   transform: rotate(90deg);
 }
 
+.m-type-year {
+  list-style: none;
+  display: flex;
+  height: 20px;
+  justify-content: flex-end;
+}
+
+.m-type,
+.m-year {
+  background-color: rgba(62, 62, 62, 0.2);
+  border-radius: 5px;
+  padding: 4px;
+  font-size: 14px;
+  font-weight: 600;
+  margin-left: 10px;
+}
+
+/* End popup section */
 /* End Main Section */
 
 /* Footer Section */
