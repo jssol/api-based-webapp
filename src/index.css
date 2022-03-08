@@ -20,6 +20,11 @@ body {
   font-family: Hubballi, sans-serif;
 }
 
+.btn {
+  background: transparent;
+  border: none;
+}
+
 /* Header section */
 
 .header {
@@ -169,6 +174,49 @@ body {
   margin-left: 50px;
 }
 
+/* Comment popup */
+.movie-details {
+  display: none;
+}
+
+.comment-open .movie-list {
+  display: none;
+}
+
+.comment-open .movie-details {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.pop-close-btn {
+  width: 3em;
+  height: 3em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #fff;
+}
+
+.pop-close,
+.pop-close::::after {
+  height: 3px;
+  width: 2em;
+  display: block;
+  background-color: #000;
+}
+
+.pop-close {
+  position: relative;
+  transform: rotate(45deg);
+}
+
+.pop-close::after {
+  position: absolute;
+  content: '';
+  transform: rotate(-45deg);
+}
+
 /* End Main Section */
 
 /* Footer Section */
@@ -178,6 +226,7 @@ body {
   align-items: center;
   justify-content: flex-start;
   padding: 1em 2em;
+  margin-top: 1em;
   width: 100%;
   border-top: 2px #191919 solid;
   position: relative;
