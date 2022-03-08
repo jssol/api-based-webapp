@@ -1,5 +1,5 @@
 import './index.css';
-import { getData, getMovieData } from './api.js';
+import { getData, getMovieData } from './modules/api.js';
 
 const movieList = document.querySelector('.movie-list');
 const movieDetails = document.querySelector('.movie-details');

@@ -1,24 +1,75 @@
 @import url('https://fonts.googleapis.com/css2?family=Hubballi&display=swap');
 
-* {
-  padding: 0;
-  margin: 0;
-  bottom: 0;
-  box-sizing: border-box;
+/* Css reset */
+:root {
+  --clr-primary: #191919;
 }
 
-.custom {
-  color: skyblue;
-  font-size: 10em;
-  background: #191919;
+*,
+*::after,
+*::before {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
 body {
+  width: 100vw;
+  overflow-x: hidden;
   background: rgba(136, 136, 136, 0.9);
   font-family: Hubballi, sans-serif;
 }
 
-.body {
+/* Header section */
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 1em 2em;
+  width: 100%;
+  border-bottom: 2px #191919 solid;
+}
+
+.logo {
+  border: 3px #191919 solid;
+  border-radius: 50%;
+  padding: 1.5em;
+  width: 2em;
+  height: 2em;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.nav {
+  display: flex;
+  align-items: center;
+  margin-left: 2em;
+}
+
+.nav-list {
+  display: flex;
+  align-items: center;
+}
+
+.nav-list-item {
+  padding: 0.5em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.nav-list-item + .nav-list-item {
+  margin-left: 0.75em;
+}
+
+/* End Header section */
+
+/* Main Section */
+
+.overlay {
   width: 100vw;
   height: 100vh;
   position: fixed;
@@ -26,7 +77,7 @@ body {
   background-image: url(./assets/img/bg.jpg);
   background-position: top;
   background-size: cover;
-  -webkit-filter: blur(5px);
+  filter: blur(5px);
 }
 
 #titre {
@@ -116,4 +167,19 @@ body {
   padding: 10px;
   margin-top: 10px;
   margin-left: 50px;
+}
+
+/* End Main Section */
+
+/* Footer Section */
+
+.footer {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 1em 2em;
+  width: 100%;
+  border-top: 2px #191919 solid;
+  position: absolute;
+  bottom: 0;
 }
