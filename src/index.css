@@ -23,6 +23,7 @@ body {
 .btn {
   background: transparent;
   border: none;
+  cursor: pointer;
 }
 
 /* Header section */
@@ -107,7 +108,6 @@ body {
   height: 300px;
   width: 250px;
   border-radius: 10px;
-  cursor: pointer;
 }
 
 .movie-title {
