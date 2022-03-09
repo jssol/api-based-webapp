@@ -48,6 +48,8 @@ const showComments = async (id) => {
           const li = document.createElement('li');
           li.className = 'comment';
           li.innerHTML = comment.comment;
+
+          document.querySelector('.comments-list').appendChild(li);
         });
       } else {
         document.querySelector('.comments-list').innerHTML = 'No comments yet!';
