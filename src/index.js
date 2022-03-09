@@ -39,24 +39,23 @@ const likeCount = (item, id, index) => {
 };
 
 const showComments = async (id) => {
-  getComments(id)
-    .then((comments) => {
-      let commentsCount = 0;
-      if (comments.length > 0) {
-        comments.forEach((comment) => {
-          commentsCount += 1;
-          const li = document.createElement('li');
-          li.className = 'comment';
-          li.innerHTML = `${comment.creation_date} ${comment.username}: ${comment.comment}`;
+  getComments(id).then((comments) => {
+    let commentsCount = 0;
+    if (comments.length > 0) {
+      comments.forEach((comment) => {
+        commentsCount += 1;
+        const li = document.createElement('li');
+        li.className = 'comment';
+        li.innerHTML = `${comment.creation_date} ${comment.username}: ${comment.comment}`;
 
-          document.querySelector('.comments-list').appendChild(li);
-        });
-      } else {
-        document.querySelector('.comments-list').innerHTML = 'No comments yet!';
-        document.querySelector('.comments-list').className = 'empty';
-      }
-      document.getElementById('comments-count').innerHTML = commentsCount;
-    });
+        document.querySelector('.comments-list').appendChild(li);
+      });
+    } else {
+      document.querySelector('.comments-list').innerHTML = 'No comments yet!';
+      document.querySelector('.comments-list').className = 'empty';
+    }
+    document.getElementById('comments-count').innerHTML = commentsCount;
+  });
 };
 
 const displayMovies = (title) => {
@@ -69,7 +68,7 @@ const displayMovies = (title) => {
                                     <i class="like-btn">&#x2764; <span class="likes-data"></span></i>
                                     <button class="comment-btn">Comments</button>
                                 </div>
-                                <p class="movie-title">${movie.Title}</p>
+                                <p class="movie-title" title="${movie.Title}">${movie.Title}</p>
                                 <ul class="type-year">
                                     <li class="movie-type">${movie.Type}</li>
                                     <li class="movie-year">${movie.Year}</li>
@@ -89,9 +88,8 @@ const showComment = (btn) => {
   const movie = btn.parentElement.nextElementSibling.innerHTML;
   movieDetails.innerHTML = '';
   page.classList.add('comment-open');
-  getMovieData(movie)
-    .then((data) => {
-      movieDetails.innerHTML = `
+  getMovieData(movie).then((data) => {
+    movieDetails.innerHTML = `
       <article class="movie-popup">
         <button class="pop-close-btn btn"><span class="pop-close"></span></button>
         <section class="main-popup-content">
@@ -126,7 +124,7 @@ const showComment = (btn) => {
           </section>
         </section>
       </article>`;
-    });
+  });
   showComments(movieId);
 };
 
