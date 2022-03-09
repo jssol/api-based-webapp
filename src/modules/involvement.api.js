@@ -20,17 +20,17 @@ const setComment = async (movieID, comment) => {
   };
 
   const data = {
-    "item_id": movieID,
-    "username": getUser(),
-    "comment": comment
-  }
+    item_id: movieID,
+    username: getUser(),
+    comment,
+  };
   const appID = 'YUqI88f5a8VwBEjald5b';
   const res = await fetch(`https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/${appID}/comments`, {
     method: 'POST',
-    body: JSON.stringify(data)
+    body: JSON.stringify(data),
   });
   const status = await res.json();
   return status;
-}
+};
 
 export { getLikes, getComments, setComment };

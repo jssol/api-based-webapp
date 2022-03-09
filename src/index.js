@@ -40,22 +40,22 @@ const likeCount = (item, id, index) => {
 
 const showComments = async (id) => {
   getComments(id)
-  .then((comments) => {
-    let commentsCount = 0;
-    if (comments.length > 0) {
-      comments.forEach((comment) => {
-        commentsCount += 1;
-        const li = document.createElement('li');
-        li.className = 'comment';
-        li.innerHTML = comment.comment;
-      });
-    } else {
-      document.querySelector('.comments-list').innerHTML = 'No comments yet!';
-      document.querySelector('.comments-list').className = 'empty';
-    }
-    document.getElementById('comments-count').innerHTML = commentsCount;
-  })
-}
+    .then((comments) => {
+      let commentsCount = 0;
+      if (comments.length > 0) {
+        comments.forEach((comment) => {
+          commentsCount += 1;
+          const li = document.createElement('li');
+          li.className = 'comment';
+          li.innerHTML = comment.comment;
+        });
+      } else {
+        document.querySelector('.comments-list').innerHTML = 'No comments yet!';
+        document.querySelector('.comments-list').className = 'empty';
+      }
+      document.getElementById('comments-count').innerHTML = commentsCount;
+    });
+};
 
 const displayMovies = (title) => {
   getData(title)
@@ -122,7 +122,7 @@ const showComment = (btn) => {
         </section>
       </article>`;
     });
-    showComments(movieId);
+  showComments(movieId);
 };
 
 document.addEventListener('DOMContentLoaded', displayMovies('marvel'));
@@ -144,4 +144,4 @@ document.addEventListener('submit', (e) => {
     setComment(identifier, document.querySelector('.comment-input').value);
     e.target.reset();
   }
-})
+});
