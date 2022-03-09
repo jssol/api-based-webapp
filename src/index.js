@@ -1,5 +1,6 @@
 import './index.css';
 import { getData, getMovieData } from './modules/api.js';
+import getLikes from './modules/involvement.api.js';
 
 const movieList = document.querySelector('.movie-list');
 const movieDetails = document.querySelector('.movie-details');
@@ -16,14 +17,43 @@ const countItems = (arr) => {
   return count;
 };
 
+const likeCount = (item, id, index) => {
+  // getLikes().then((result) => {
+  //   for (let i = 0; i < result.length; i++) {
+  //     if (result[i].item_id === id) {
+  //       // console.log(result[i].likes);
+  //       return result[i].likes;
+  //     }
+  //   }
+  // });
+  getLikes()
+    .then((result) => {
+      let like = 0;
+      result.forEach((data) => {
+        if (data.item_id === id) {
+          // console.log(data.likes);
+          like = data.likes;
+        }
+      });
+      return like;
+    })
+    .then((likes) => {
+      document.querySelectorAll('.likes-data').forEach((card, i) => {
+        if (index === i) {
+          card.innerHTML = likes;
+        }
+      });
+    });
+};
+
 const displayMovies = (title) => {
   getData(title)
     .then((res) => {
-      res.forEach((movie) => {
+      res.forEach((movie, i) => {
         movieList.innerHTML += `<article class="movie">
                                 <img class="movie-poster" src="${movie.Poster}"/>
                                 <div class="l-c-buttons">
-                                    <i class="like-btn">&#x2764;</i>
+                                    <i class="like-btn">&#x2764; <span class="likes-data"></span></i>
                                     <button class="comment-btn">Comment</button>
                                 </div>
                                 <p class="movie-title">${movie.Title}</p>
@@ -32,6 +62,7 @@ const displayMovies = (title) => {
                                     <li class="movie-year">${movie.Year}</li>
                                 </ul>
                             </article>`;
+        likeCount(movie, movie.imdbID, i);
       });
       return res;
     })
@@ -39,6 +70,8 @@ const displayMovies = (title) => {
       countItems(movieList);
     });
 };
+
+// likeCount();
 
 const showComment = (btn) => {
   const movie = btn.parentElement.nextElementSibling.innerHTML;
