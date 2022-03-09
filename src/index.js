@@ -1,4 +1,5 @@
 import './index.css';
+import './assets/img/logo-transparent.png';
 import { getData, getMovieData } from './modules/api.js';
 import { getLikes, getComments, setComment } from './modules/involvement.api.js';
 
@@ -39,24 +40,23 @@ const likeCount = (item, id, index) => {
 };
 
 const showComments = async (id) => {
-  getComments(id)
-    .then((comments) => {
-      let commentsCount = 0;
-      if (comments.length > 0) {
-        comments.forEach((comment) => {
-          commentsCount += 1;
-          const li = document.createElement('li');
-          li.className = 'comment';
-          li.innerHTML = `${comment.creation_date} ${comment.username}: ${comment.comment}`;
+  getComments(id).then((comments) => {
+    let commentsCount = 0;
+    if (comments.length > 0) {
+      comments.forEach((comment) => {
+        commentsCount += 1;
+        const li = document.createElement('li');
+        li.className = 'comment';
+        li.innerHTML = `${comment.creation_date} ${comment.username}: ${comment.comment}`;
 
-          document.querySelector('.comments-list').appendChild(li);
-        });
-      } else {
-        document.querySelector('.comments-list').innerHTML = 'No comments yet!';
-        document.querySelector('.comments-list').className = 'empty';
-      }
-      document.getElementById('comments-count').innerHTML = commentsCount;
-    });
+        document.querySelector('.comments-list').appendChild(li);
+      });
+    } else {
+      document.querySelector('.comments-list').innerHTML = 'No comments yet!';
+      document.querySelector('.comments-list').className = 'empty';
+    }
+    document.getElementById('comments-count').innerHTML = commentsCount;
+  });
 };
 
 const displayMovies = (title) => {
@@ -89,9 +89,8 @@ const showComment = (btn) => {
   const movie = btn.parentElement.nextElementSibling.innerHTML;
   movieDetails.innerHTML = '';
   page.classList.add('comment-open');
-  getMovieData(movie)
-    .then((data) => {
-      movieDetails.innerHTML = `
+  getMovieData(movie).then((data) => {
+    movieDetails.innerHTML = `
       <article class="movie-popup">
         <button class="pop-close-btn btn"><span class="pop-close"></span></button>
         <section class="main-popup-content">
@@ -126,7 +125,7 @@ const showComment = (btn) => {
           </section>
         </section>
       </article>`;
-    });
+  });
   showComments(movieId);
 };
 
