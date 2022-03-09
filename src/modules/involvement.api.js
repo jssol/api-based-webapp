@@ -16,7 +16,7 @@ const setComment = async (movieID, comment, name) => {
   const data = {
     item_id: movieID,
     username: name,
-    comment: comment,
+    comment,
   };
   const appID = 'YUqI88f5a8VwBEjald5b';
   const res = await fetch(`https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/${appID}/comments`, {
