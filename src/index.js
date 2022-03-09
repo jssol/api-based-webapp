@@ -17,21 +17,13 @@ const countItems = (arr) => {
   return count;
 };
 
+// Function to get & display lakes on the home page
 const likeCount = (item, id, index) => {
-  // getLikes().then((result) => {
-  //   for (let i = 0; i < result.length; i++) {
-  //     if (result[i].item_id === id) {
-  //       // console.log(result[i].likes);
-  //       return result[i].likes;
-  //     }
-  //   }
-  // });
   getLikes()
     .then((result) => {
       let like = 0;
       result.forEach((data) => {
         if (data.item_id === id) {
-          // console.log(data.likes);
           like = data.likes;
         }
       });
@@ -70,8 +62,6 @@ const displayMovies = (title) => {
       countItems(movieList);
     });
 };
-
-// likeCount();
 
 const showComment = (btn) => {
   const movie = btn.parentElement.nextElementSibling.innerHTML;
