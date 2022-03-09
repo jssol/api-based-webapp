@@ -1,5 +1,6 @@
 import './index.css';
 import { getData, getMovieData } from './modules/api.js';
+import getLikes from './modules/involvement.api.js';
 
 const movieList = document.querySelector('.movie-list');
 const movieDetails = document.querySelector('.movie-details');
@@ -16,14 +17,35 @@ const countItems = (arr) => {
   return count;
 };
 
+// Function to get & display lakes on the home page
+const likeCount = (item, id, index) => {
+  getLikes()
+    .then((result) => {
+      let like = 0;
+      result.forEach((data) => {
+        if (data.item_id === id) {
+          like = data.likes;
+        }
+      });
+      return like;
+    })
+    .then((likes) => {
+      document.querySelectorAll('.likes-data').forEach((card, i) => {
+        if (index === i) {
+          card.innerHTML = likes;
+        }
+      });
+    });
+};
+
 const displayMovies = (title) => {
   getData(title)
     .then((res) => {
-      res.forEach((movie) => {
+      res.forEach((movie, i) => {
         movieList.innerHTML += `<article class="movie">
                                 <img class="movie-poster" src="${movie.Poster}"/>
                                 <div class="l-c-buttons">
-                                    <i class="like-btn">&#x2764;</i>
+                                    <i class="like-btn">&#x2764; <span class="likes-data"></span></i>
                                     <button class="comment-btn">Comment</button>
                                 </div>
                                 <p class="movie-title">${movie.Title}</p>
@@ -32,6 +54,7 @@ const displayMovies = (title) => {
                                     <li class="movie-year">${movie.Year}</li>
                                 </ul>
                             </article>`;
+        likeCount(movie, movie.imdbID, i);
       });
       return res;
     })
