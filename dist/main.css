@@ -458,6 +458,6 @@ body {
 }
 
 .comment-open .footer {
-  border-top: 2px var(--white) solid;
+  display: none;
 }
 
