@@ -1,23 +1,52 @@
 import './index.css';
 import { getData, getMovieData } from './modules/api.js';
+import getLikes from './modules/involvement.api.js';
 
 const movieList = document.querySelector('.movie-list');
 const movieDetails = document.querySelector('.movie-details');
 const page = document.documentElement;
 
-const displayMovies = () => {
-  getData()
+// Function to count number of element on the page
+const countItems = (arr) => {
+  let count = 0;
+  arr.forEach(() => {
+    count += 1;
+  });
+  const itemCount = document.querySelector('.item-count');
+  itemCount.innerHTML = count;
+  return count;
+};
+
+// Function to get & display lakes on the home page
+const likeCount = (item, id, index) => {
+  getLikes()
+    .then((result) => {
+      let like = 0;
+      result.forEach((data) => {
+        if (data.item_id === id) {
+          like = data.likes;
+        }
+      });
+      return like;
+    })
+    .then((likes) => {
+      document.querySelectorAll('.likes-data').forEach((card, i) => {
+        if (index === i) {
+          card.innerHTML = likes;
+        }
+      });
+    });
+};
+
+const displayMovies = (title) => {
+  getData(title)
     .then((res) => {
-      res.forEach((movie, index) => {
-        const identity = (movie) => {
-          const id = movie.Title.toLowerCase().replace(/\s/g, '-');
-          return id;
-        };
-        movieList.innerHTML += `<article id="${identity(movie)}" class="movie">
+      res.forEach((movie, i) => {
+        movieList.innerHTML += `<article class="movie">
                                 <img class="movie-poster" src="${movie.Poster}"/>
                                 <div class="l-c-buttons">
-                                    <i class="like-btn">&#x2764;</i>
-                                    <button class="comment-btn">Comments</button>
+                                    <i class="like-btn">&#x2764; <span class="likes-data"></span></i>
+                                    <button class="comment-btn">Comment</button>
                                 </div>
                                 <p class="movie-title">${movie.Title}</p>
                                 <ul class="type-year">
@@ -25,7 +54,12 @@ const displayMovies = () => {
                                     <li class="movie-year">${movie.Year}</li>
                                 </ul>
                             </article>`;
+        likeCount(movie, movie.imdbID, i);
       });
+      return res;
+    })
+    .then((movieList) => {
+      countItems(movieList);
     });
 };
 
@@ -67,10 +101,10 @@ const showComment = (btn) => {
           </section>
         </section>
       </article>`;
-    });
+  });
 };
 
-document.addEventListener('DOMContentLoaded', displayMovies);
+document.addEventListener('DOMContentLoaded', displayMovies('marvel'));
 
 document.addEventListener('click', (e) => {
   if (e.target && e.target.classList.contains('comment-btn')) {
