@@ -1,4 +1,4 @@
-const getData = async (movie = 'the flash') => {
+const getData = async (movie) => {
   const key = 'e7db26be';
 
   const data = await fetch(`https://www.omdbapi.com/?s=${movie}&apikey=${key}`);

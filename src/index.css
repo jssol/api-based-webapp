@@ -173,9 +173,12 @@ body {
 .movie-title {
   font-size: 30px;
   text-align: center;
-  width: 200px;
+  max-width: 200px;
   margin-top: 10px;
-  height: 100px;
+  margin-bottom: 30px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .type-year {

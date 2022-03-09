@@ -6,6 +6,7 @@ import { getLikes, getComments, setComment } from './modules/involvement.api.js'
 const movieList = document.querySelector('.movie-list');
 const movieDetails = document.querySelector('.movie-details');
 const page = document.documentElement;
+const searchMovie = document.querySelector('.search-input');
 
 // Function to count number of element on the page
 const countItems = (arr) => {
@@ -62,6 +63,7 @@ const showComments = async (id) => {
 const displayMovies = (title) => {
   getData(title)
     .then((res) => {
+      movieList.innerHTML = '';
       res.forEach((movie, i) => {
         movieList.innerHTML += `<article id="${movie.imdbID}" class="movie">
                                 <img class="movie-poster" src="${movie.Poster}"/>
@@ -69,7 +71,7 @@ const displayMovies = (title) => {
                                     <i class="like-btn">&#x2764; <span class="likes-data"></span></i>
                                     <button class="comment-btn">Comments</button>
                                 </div>
-                                <p class="movie-title">${movie.Title}</p>
+                                <p class="movie-title" title="${movie.Title}">${movie.Title}</p>
                                 <ul class="type-year">
                                     <li class="movie-type">${movie.Type}</li>
                                     <li class="movie-year">${movie.Year}</li>
@@ -129,7 +131,13 @@ const showComment = (btn) => {
   showComments(movieId);
 };
 
-document.addEventListener('DOMContentLoaded', displayMovies('marvel'));
+document.addEventListener('DOMContentLoaded', () => {
+  displayMovies('marvel');
+});
+
+searchMovie.addEventListener('input', () => {
+  displayMovies(searchMovie.value);
+});
 
 document.addEventListener('click', (e) => {
   if (e.target && e.target.classList.contains('comment-btn')) {
