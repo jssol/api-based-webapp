@@ -1,8 +1,6 @@
 import './index.css';
 import { getData, getMovieData } from './modules/api.js';
-import {
-  getLikes, getComments, setComment, setLikes,
-} from './modules/involvement.api.js';
+import { getLikes, getComments, setComment, setLikes } from './modules/involvement.api.js';
 
 const movieList = document.querySelector('.movie-list');
 const movieDetails = document.querySelector('.movie-details');
@@ -20,24 +18,24 @@ const countItems = (arr) => {
 };
 
 // Function to get & display lakes on the home page
-const likeCount = (item, id, index) => {
-  getLikes()
-    .then((result) => {
-      let like = 0;
-      result.forEach((data) => {
-        if (data.item_id === id) {
-          like = data.likes;
-        }
-      });
-      return like;
-    })
-    .then((likes) => {
-      document.querySelectorAll('.likes-data').forEach((card, i) => {
-        if (index === i) {
-          card.innerHTML = likes;
-        }
-      });
+const likeCount = (id, index) => {
+  let Likes = [];
+  getLikes().then((result) => {
+    Likes = result;
+  });
+  setTimeout(() => {
+    let like = 0;
+    Likes.forEach((data) => {
+      if (data.item_id === id) {
+        like = data.likes;
+      }
     });
+    document.querySelectorAll('.likes-data').forEach((card, i) => {
+      if (index === i) {
+        card.innerHTML = like;
+      }
+    });
+  }, 3000);
 };
 
 const showComments = async (id) => {
@@ -76,13 +74,14 @@ const displayMovies = (title) => {
                                     <li class="movie-year">${movie.Year}</li>
                                 </ul>
                             </article>`;
-        likeCount(movie, movie.imdbID, i);
       });
-      document.querySelectorAll('.like-btn').forEach((btn) => {
+      document.querySelectorAll('.like-btn').forEach((btn, i) => {
+        likeCount(btn.parentElement.parentElement.id, i);
         btn.addEventListener('click', () => {
           if (btn.style.color !== 'red') {
             setLikes(btn.parentElement.parentElement.id).then(() => {
               btn.style.color = 'red';
+              likeCount(btn.parentElement.parentElement.id, i);
             });
           }
         });
@@ -91,6 +90,9 @@ const displayMovies = (title) => {
     })
     .then((movieList) => {
       countItems(movieList);
+    })
+    .then(() => {
+      // likeCount(btn.parentElement.parentElement.id, i);
     });
 };
 
