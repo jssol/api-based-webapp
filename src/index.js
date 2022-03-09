@@ -64,16 +64,16 @@ const displayMovies = (title) => {
     .then((res) => {
       res.forEach((movie, i) => {
         movieList.innerHTML += `<article id="${movie.imdbID}" class="movie">
-                                <img class="movie-poster" src="${movie.Poster}"/>
-                                <div class="l-c-buttons">
-                                    <i class="like-btn">&#x2764; <span class="likes-data"></span></i>
-                                    <button class="comment-btn">Comments</button>
-                                </div>
-                                <p class="movie-title">${movie.Title}</p>
+                                <div class="poster-div"><img class="movie-poster" src="${movie.Poster}"/></div>
                                 <ul class="type-year">
-                                    <li class="movie-type">${movie.Type}</li>
-                                    <li class="movie-year">${movie.Year}</li>
+                                  <li class="movie-type">${movie.Type}</li>
+                                  <li class="movie-year">${movie.Year}</li>
                                 </ul>
+                                <div class="l-c-buttons">
+                                  <button type="button" class="like-btn btn">&#x2764; <span class="likes-data"></span></button>
+                                  <button type="button" class="comment-btn btn">Comments</button>
+                                </div>
+                                <h3 class="movie-title">${movie.Title}</h3>
                             </article>`;
         likeCount(movie, movie.imdbID, i);
       });
