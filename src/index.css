@@ -142,15 +142,22 @@ body {
 
 .movie-title {
   font-size: 30px;
-  text-align: center;
   width: 200px;
   margin-top: 10px;
-  height: 100px;
+  margin-bottom: 30px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  cursor: default;
 }
 
 .type-year {
   list-style: none;
   display: flex;
+}
+
+.movie-year {
+  margin-left: 10px;
 }
 
 .movie-meta-info {
