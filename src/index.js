@@ -1,6 +1,6 @@
 import './index.css';
 import { getData, getMovieData } from './modules/api.js';
-import getLikes from './modules/involvement.api.js';
+import { getLikes, getComments } from './modules/involvement.api.js';
 
 const movieList = document.querySelector('.movie-list');
 const movieDetails = document.querySelector('.movie-details');
@@ -38,15 +38,33 @@ const likeCount = (item, id, index) => {
     });
 };
 
+const showComments = async (id) => {
+  getComments(id)
+  .then((comments) => {
+    let commentsCount = 0;
+    if (comments.length > 0) {
+      comments.forEach((comment) => {
+        commentsCount += 1;
+        const li = document.createElement('li');
+        li.className = 'comment';
+        li.innerHTML = comment.comment;
+      });
+    } else {
+      document.querySelector('.comments-list').innerHTML = 'No comments yet!'
+    }
+    document.getElementById('comments-count').innerHTML = commentsCount;
+  })
+}
+
 const displayMovies = (title) => {
   getData(title)
     .then((res) => {
       res.forEach((movie, i) => {
-        movieList.innerHTML += `<article class="movie">
+        movieList.innerHTML += `<article id="${movie.imdbID}" class="movie">
                                 <img class="movie-poster" src="${movie.Poster}"/>
                                 <div class="l-c-buttons">
                                     <i class="like-btn">&#x2764; <span class="likes-data"></span></i>
-                                    <button class="comment-btn">Comment</button>
+                                    <button class="comment-btn">Comments</button>
                                 </div>
                                 <p class="movie-title">${movie.Title}</p>
                                 <ul class="type-year">
@@ -64,6 +82,7 @@ const displayMovies = (title) => {
 };
 
 const showComment = (btn) => {
+  const movieId = btn.parentElement.parentElement.id;
   const movie = btn.parentElement.nextElementSibling.innerHTML;
   movieDetails.innerHTML = '';
   page.classList.add('comment-open');
@@ -84,7 +103,7 @@ const showComment = (btn) => {
             </ul>
             <p class="m-plot">${data.Plot}</p>
             <section class="movie-comments">
-              <h3 class="comments-subtitle">Comments</h3>
+              <h3 class="comments-subtitle">Comments(<span id="comments-count"></span>)</h3>
               <ul class="comments-list list"></ul>
               <h3 class="comments-subtitle">Add a comment</h3>
               <form action="#">
@@ -101,7 +120,7 @@ const showComment = (btn) => {
           </section>
         </section>
       </article>`;
-  });
+    });
 };
 
 document.addEventListener('DOMContentLoaded', displayMovies('marvel'));

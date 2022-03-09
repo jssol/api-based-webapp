@@ -5,4 +5,11 @@ const getLikes = async () => {
   return likes;
 };
 
-export default getLikes;
+const getComments = async (movieID) => {
+  const appID = 'YUqI88f5a8VwBEjald5b';
+  const res = await fetch(`https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/${appID}/comments?item_id=${movieID}`);
+  const comments = await res.json();
+  return comments;
+};
+
+export { getLikes, getComments };
