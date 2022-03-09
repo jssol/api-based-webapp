@@ -5,6 +5,20 @@ const getLikes = async () => {
   return likes;
 };
 
+const setLikes = async (movieID) => {
+  const appID = 'YUqI88f5a8VwBEjald5b';
+  const options = {
+    method: 'POST',
+    body: JSON.stringify({ item_id: movieID }),
+    headers: {
+      'Content-Type': 'application/json',
+    },
+  };
+  const result = await fetch(`https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/${appID}/likes`, options);
+  const response = await result.text();
+  return response;
+};
+
 const getComments = async (movieID) => {
   const appID = 'YUqI88f5a8VwBEjald5b';
   const res = await fetch(`https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/${appID}/comments?item_id=${movieID}`);
@@ -30,4 +44,6 @@ const setComment = async (movieID, comment, name) => {
   return status;
 };
 
-export { getLikes, getComments, setComment };
+export {
+  getLikes, getComments, setComment, setLikes,
+};

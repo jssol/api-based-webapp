@@ -151,6 +151,10 @@ body {
   cursor: default;
 }
 
+.likes-data {
+  color: #fff;
+}
+
 .type-year {
   list-style: none;
   display: flex;

@@ -1,6 +1,8 @@
 import './index.css';
 import { getData, getMovieData } from './modules/api.js';
-import { getLikes, getComments, setComment } from './modules/involvement.api.js';
+import {
+  getLikes, getComments, setComment, setLikes,
+} from './modules/involvement.api.js';
 
 const movieList = document.querySelector('.movie-list');
 const movieDetails = document.querySelector('.movie-details');
@@ -57,7 +59,7 @@ const showComments = async (id) => {
     document.getElementById('comments-count').innerHTML = commentsCount;
   });
 };
-
+// setLikes();
 const displayMovies = (title) => {
   getData(title)
     .then((res) => {
@@ -75,6 +77,15 @@ const displayMovies = (title) => {
                                 </ul>
                             </article>`;
         likeCount(movie, movie.imdbID, i);
+      });
+      document.querySelectorAll('.like-btn').forEach((btn) => {
+        btn.addEventListener('click', () => {
+          if (btn.style.color !== 'red') {
+            setLikes(btn.parentElement.parentElement.id).then(() => {
+              btn.style.color = 'red';
+            });
+          }
+        });
       });
       return res;
     })
