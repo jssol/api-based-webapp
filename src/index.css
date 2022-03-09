@@ -344,6 +344,13 @@ body {
   margin-left: 10px;
 }
 
+#name {
+  width: 30%;
+  border: none;
+  padding: 0.5em 1em;
+  min-height: 1em;
+}
+
 .input-list-item + .input-list-item {
   margin-top: 0.5em;
 }
@@ -356,7 +363,7 @@ body {
   padding: 0.75em 1em;
 }
 
-.comment-input:focus {
+.input:focus {
   outline: 2px solid rgba(58, 96, 199, 0.761);
   outline-offset: 1px;
   transform: translateX(5px);

@@ -112,10 +112,10 @@ const showComment = (btn) => {
               <form action="#" id="add-comment-form" class="${movieId}">
                 <ul class="input-list list">
                   <li class="input-list-item">
-                    <textarea name="name" id="name" class="name-input" placeholder="Your name"/>
+                    <input type="text" name="name" id="name" class="name-input input" placeholder="Your name"/>
                   </li>
                   <li class="input-list-item">
-                    <textarea name="comment" id="comment" class="comment-input" placeholder="Give us your thoughts..."></textarea>
+                    <textarea name="comment" id="comment" class="comment-input input" placeholder="Give us your thoughts..."></textarea>
                   </li>
                   <li class="input-list-item">
                     <button type="submit" class="comment-submit btn">Comment</button>
