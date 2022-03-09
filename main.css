@@ -51,7 +51,6 @@ body {
   padding: 1em 2em;
   width: 100%;
   border-bottom: 2px #191919 solid;
-  background-color: #fff;
 }
 
 .logo {
@@ -91,20 +90,6 @@ body {
 /* End Header section */
 
 /* Main Section */
-
-.counter {
-  margin: 30px;
-  padding: 5px;
-  font-size: 20px;
-  color: #9e9e9e;
-  background-color: rgba(62, 62, 62, 0.9);
-  outline: none;
-  width: fit-content;
-  border: none;
-  border-radius: 10px;
-  cursor: pointer;
-  box-shadow: 2px 1px 10px #fff;
-}
 
 #titre {
   color: skyblue;
