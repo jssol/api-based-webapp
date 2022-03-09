@@ -1,6 +1,8 @@
 import './index.css';
 import { getData, getMovieData } from './modules/api.js';
-import { getLikes, getComments, setComment, setLikes } from './modules/involvement.api.js';
+import {
+  getLikes, getComments, setComment, setLikes,
+} from './modules/involvement.api.js';
 
 const movieList = document.querySelector('.movie-list');
 const movieDetails = document.querySelector('.movie-details');
@@ -23,6 +25,7 @@ const likeCount = (id, index) => {
   getLikes().then((result) => {
     Likes = result;
   });
+
   setTimeout(() => {
     let like = 0;
     Likes.forEach((data) => {
@@ -35,7 +38,7 @@ const likeCount = (id, index) => {
         card.innerHTML = like;
       }
     });
-  }, 3000);
+  }, 4000);
 };
 
 const showComments = async (id) => {
@@ -61,7 +64,7 @@ const showComments = async (id) => {
 const displayMovies = (title) => {
   getData(title)
     .then((res) => {
-      res.forEach((movie, i) => {
+      res.forEach((movie) => {
         movieList.innerHTML += `<article id="${movie.imdbID}" class="movie">
                                 <img class="movie-poster" src="${movie.Poster}"/>
                                 <div class="l-c-buttons">
@@ -90,9 +93,6 @@ const displayMovies = (title) => {
     })
     .then((movieList) => {
       countItems(movieList);
-    })
-    .then(() => {
-      // likeCount(btn.parentElement.parentElement.id, i);
     });
 };
 
