@@ -47,7 +47,7 @@ const showComments = async (id) => {
           commentsCount += 1;
           const li = document.createElement('li');
           li.className = 'comment';
-          li.innerHTML = comment.comment;
+          li.innerHTML = `${comment.creation_date} ${comment.username}: ${comment.comment}`;
 
           document.querySelector('.comments-list').appendChild(li);
         });
@@ -112,7 +112,10 @@ const showComment = (btn) => {
               <form action="#" id="add-comment-form" class="${movieId}">
                 <ul class="input-list list">
                   <li class="input-list-item">
-                    <textarea name="comment" id="comment" class="comment-input" placeholder="Give us your thoughts ..."></textarea>
+                    <textarea name="name" id="name" class="name-input" placeholder="Your name"/>
+                  </li>
+                  <li class="input-list-item">
+                    <textarea name="comment" id="comment" class="comment-input" placeholder="Give us your thoughts..."></textarea>
                   </li>
                   <li class="input-list-item">
                     <button type="submit" class="comment-submit btn">Comment</button>
@@ -143,7 +146,7 @@ document.addEventListener('submit', (e) => {
   if (e.target && e.target.id === 'add-comment-form') {
     e.preventDefault();
     const identifier = e.target.className;
-    setComment(identifier, document.querySelector('.comment-input').value);
+    setComment(identifier, document.querySelector('.comment-input').value, document.querySelector('.name-input').value);
     e.target.reset();
   }
 });
