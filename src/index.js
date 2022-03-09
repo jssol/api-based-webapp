@@ -1,6 +1,6 @@
 import './index.css';
 import { getData, getMovieData } from './modules/api.js';
-import { getLikes, getComments } from './modules/involvement.api.js';
+import { getLikes, getComments, setComment } from './modules/involvement.api.js';
 
 const movieList = document.querySelector('.movie-list');
 const movieDetails = document.querySelector('.movie-details');
@@ -50,7 +50,8 @@ const showComments = async (id) => {
         li.innerHTML = comment.comment;
       });
     } else {
-      document.querySelector('.comments-list').innerHTML = 'No comments yet!'
+      document.querySelector('.comments-list').innerHTML = 'No comments yet!';
+      document.querySelector('.comments-list').className = 'empty';
     }
     document.getElementById('comments-count').innerHTML = commentsCount;
   })
@@ -106,7 +107,7 @@ const showComment = (btn) => {
               <h3 class="comments-subtitle">Comments(<span id="comments-count"></span>)</h3>
               <ul class="comments-list list"></ul>
               <h3 class="comments-subtitle">Add a comment</h3>
-              <form action="#">
+              <form action="#" id="add-comment-form" class="${movieId}">
                 <ul class="input-list list">
                   <li class="input-list-item">
                     <textarea name="comment" id="comment" class="comment-input" placeholder="Give us your thoughts ..."></textarea>
@@ -121,6 +122,7 @@ const showComment = (btn) => {
         </section>
       </article>`;
     });
+    showComments(movieId);
 };
 
 document.addEventListener('DOMContentLoaded', displayMovies('marvel'));
@@ -134,3 +136,12 @@ document.addEventListener('click', (e) => {
     page.classList.remove('comment-open');
   }
 });
+
+document.addEventListener('submit', (e) => {
+  if (e.target && e.target.id === 'add-comment-form') {
+    e.preventDefault();
+    const identifier = e.target.className;
+    setComment(identifier, document.querySelector('.comment-input').value);
+    e.target.reset();
+  }
+})

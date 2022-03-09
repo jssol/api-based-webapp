@@ -265,6 +265,14 @@ body {
   line-height: 1.4;
 }
 
+.empty {
+  color: #fff;
+  font-size: 0.85em;
+  font-style: italic;
+  padding-left: 1em;
+  margin-bottom: 0.5em;
+}
+
 .comment {
   font-size: 0.75em;
   width: 90%;
