@@ -1,6 +1,8 @@
 import './index.css';
 import { getData, getMovieData } from './modules/api.js';
-import { getLikes, getComments, setComment } from './modules/involvement.api.js';
+import {
+  getLikes, getComments, setComment, setLikes,
+} from './modules/involvement.api.js';
 
 const movieList = document.querySelector('.movie-list');
 const movieDetails = document.querySelector('.movie-details');
@@ -18,69 +20,83 @@ const countItems = (arr) => {
 };
 
 // Function to get & display lakes on the home page
-const likeCount = (item, id, index) => {
-  getLikes()
-    .then((result) => {
-      let like = 0;
-      result.forEach((data) => {
-        if (data.item_id === id) {
-          like = data.likes;
-        }
-      });
-      return like;
-    })
-    .then((likes) => {
-      document.querySelectorAll('.likes-data').forEach((card, i) => {
-        if (index === i) {
-          card.innerHTML = likes;
-        }
-      });
-    });
+
+const likeCount = (id, index, Likes) => {
+  let like = 0;
+  Likes.forEach((data) => {
+    if (data.item_id === id) {
+      like = data.likes;
+    }
+  });
+  document.querySelectorAll('.likes-data').forEach((card, i) => {
+    if (index === i) {
+      card.innerHTML = like;
+    }
+  });
 };
 
 const showComments = async (id) => {
-  getComments(id)
-    .then((comments) => {
-      let commentsCount = 0;
-      if (comments.length > 0) {
-        comments.forEach((comment) => {
-          commentsCount += 1;
-          const li = document.createElement('li');
-          li.className = 'comment';
-          li.innerHTML = `${comment.creation_date} ${comment.username}: ${comment.comment}`;
+  getComments(id).then((comments) => {
+    let commentsCount = 0;
+    if (comments.length > 0) {
+      comments.forEach((comment) => {
+        commentsCount += 1;
+        const li = document.createElement('li');
+        li.className = 'comment';
+        li.innerHTML = `${comment.creation_date} ${comment.username}: ${comment.comment}`;
 
-          document.querySelector('.comments-list').appendChild(li);
-        });
-      } else {
-        document.querySelector('.comments-list').innerHTML = 'No comments yet!';
-        document.querySelector('.comments-list').className = 'empty';
-      }
-      document.getElementById('comments-count').innerHTML = commentsCount;
-    });
+        document.querySelector('.comments-list').appendChild(li);
+      });
+    } else {
+      document.querySelector('.comments-list').innerHTML = 'No comments yet!';
+      document.querySelector('.comments-list').className = 'empty';
+    }
+    document.getElementById('comments-count').innerHTML = commentsCount;
+  });
 };
-
+// setLikes();
 const displayMovies = (title) => {
   getData(title)
     .then((res) => {
-      res.forEach((movie, i) => {
+      res.forEach((movie) => {
         movieList.innerHTML += `<article id="${movie.imdbID}" class="movie">
                                 <img class="movie-poster" src="${movie.Poster}"/>
                                 <div class="l-c-buttons">
                                     <i class="like-btn">&#x2764; <span class="likes-data"></span></i>
                                     <button class="comment-btn">Comments</button>
                                 </div>
-                                <p class="movie-title">${movie.Title}</p>
+                                <p class="movie-title" title="${movie.Title}">${movie.Title}</p>
                                 <ul class="type-year">
                                     <li class="movie-type">${movie.Type}</li>
                                     <li class="movie-year">${movie.Year}</li>
                                 </ul>
                             </article>`;
-        likeCount(movie, movie.imdbID, i);
       });
       return res;
     })
     .then((movieList) => {
       countItems(movieList);
+    })
+    .then(() => {
+      getLikes()
+        .then((result) => result)
+        .then((LikesArr) => {
+          document.querySelectorAll('.like-btn').forEach((btn, i) => {
+            likeCount(btn.parentElement.parentElement.id, i, LikesArr);
+            btn.addEventListener('click', () => {
+              if (btn.style.color !== 'red') {
+                setLikes(btn.parentElement.parentElement.id).then(() => {
+                  getLikes()
+                    .then((result) => result)
+                    .then((res) => {
+                      btn.style.color = 'red';
+                      likeCount(btn.parentElement.parentElement.id, i, res);
+                    });
+                });
+              }
+            });
+          });
+        });
     });
 };
 
@@ -89,9 +105,8 @@ const showComment = (btn) => {
   const movie = btn.parentElement.nextElementSibling.innerHTML;
   movieDetails.innerHTML = '';
   page.classList.add('comment-open');
-  getMovieData(movie)
-    .then((data) => {
-      movieDetails.innerHTML = `
+  getMovieData(movie).then((data) => {
+    movieDetails.innerHTML = `
       <article class="movie-popup">
         <button class="pop-close-btn btn"><span class="pop-close"></span></button>
         <section class="main-popup-content">
@@ -126,7 +141,7 @@ const showComment = (btn) => {
           </section>
         </section>
       </article>`;
-    });
+  });
   showComments(movieId);
 };
 
