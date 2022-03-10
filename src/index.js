@@ -1,9 +1,7 @@
 import './index.css';
 import './assets/img/logo-transparent.png';
 import { getData, getMovieData } from './modules/api.js';
-import {
-  getLikes, getComments, setComment, setLikes,
-} from './modules/involvement.api.js';
+import { getLikes, getComments, setComment, setLikes } from './modules/involvement.api.js';
 
 const movieList = document.querySelector('.movie-list');
 const movieDetails = document.querySelector('.movie-details');
@@ -16,8 +14,8 @@ const countItems = (arr) => {
   arr.forEach(() => {
     count += 1;
   });
-  const itemCount = document.querySelector('.item-count');
-  itemCount.innerHTML = count;
+  const moviesCount = document.querySelector('.movies-count');
+  moviesCount.innerHTML = count;
   return count;
 };
 
@@ -37,26 +35,40 @@ const likeCount = (id, index, Likes) => {
   });
 };
 
+const commentsCount = (comments) => {
+  let count = 0;
+  if (comments.length > 0) {
+    comments.forEach((comment) => {
+      count += 1;
+    });
+  } else {
+    count = 0;
+  }
+  return count;
+};
+
 const showComments = async (id) => {
-  getComments(id).then((comments) => {
-    let commentsCount = 0;
+  getComments(id)
+  .then((comments) => {
+    const count = commentsCount(comments);
+    document.getElementById('comments-count').innerHTML = '';
     if (comments.length > 0) {
       comments.forEach((comment) => {
-        commentsCount += 1;
         const li = document.createElement('li');
         li.className = 'comment';
         li.innerHTML = `${comment.creation_date} ${comment.username}: ${comment.comment}`;
-
+        document.getElementById('comments-count').innerHTML = count;
         document.querySelector('.comments-list').appendChild(li);
       });
     } else {
       document.querySelector('.comments-list').innerHTML = 'No comments yet!';
       document.querySelector('.comments-list').className = 'empty';
+      document.getElementById('comments-count').innerHTML = '0';
     }
-    document.getElementById('comments-count').innerHTML = commentsCount;
   });
+  
 };
-// setLikes();
+
 const displayMovies = (title) => {
   getData(title)
     .then((res) => {
@@ -64,11 +76,6 @@ const displayMovies = (title) => {
       res.forEach((movie) => {
         movieList.innerHTML += `<article id="${movie.imdbID}" class="movie">
                                 <div class="poster-div"><img class="movie-poster" src="${movie.Poster}"/></div>
-                                <div class="l-c-buttons">
-                                    <i class="like-btn">&#x2764; <span class="likes-data"></span></i>
-                                    <button class="comment-btn">Comments</button>
-                                </div>
-                                <p class="movie-title" title="${movie.Title}">${movie.Title}</p>
                                 <ul class="type-year">
                                   <li class="movie-type">${movie.Type}</li>
                                   <li class="movie-year">${movie.Year}</li>
@@ -129,7 +136,7 @@ const showComment = (btn) => {
             </ul>
             <p class="m-plot">${data.Plot}</p>
             <section class="movie-comments">
-              <h3 class="comments-subtitle">Comments(<span id="comments-count"></span>)</h3>
+              <h3 class="comments-subtitle">Comments(<span id="comments-count">0</span>)</h3>
               <ul class="comments-list list"></ul>
               <h3 class="comments-subtitle">Add a comment</h3>
               <form action="#" id="add-comment-form" class="${movieId}">
