@@ -7,26 +7,27 @@
     <title>Film Guru</title>
   <link rel="icon" href="assets/favicon.png"><script defer src="main.js"></script><link href="main.css" rel="stylesheet"></head>
   <body>
-    <section class="overlay"></section>
+    <!-- <section class="overlay"></section> -->
     <header class="header">
-      <div class="logo">
-        <img class="logo-img" src="logo-transparent.png" alt="logo" />
-      </div>
+      <a class="logo" href="./index.html">
+        <img class="logo-img" src="logo-transparent.png" alt="logo"/>
+      </a>
       <nav class="nav">
         <ul class="nav-list">
-          <li class="nav-list-item">Movies(<span class="item-count"></span>)</li>
-          <li class="nav-list-item">Planets</li>
-          <li class="nav-list-item">Races</li>
+          <li class="nav-list-item">Movies(<span class="movies-count item-count">0</span>)</li>
+          <li class="nav-list-item">Series(<span class="series-count item-count">0</span>)</li>
+          <li class="nav-list-item">Games(<span class="games-count item-count">0</span>)</li>
+          <li class="nav-list-item search"><input class="search-input" type="search" placeholder="Search a movie..." /></li>
         </ul>
       </nav>
     </header>
-    <main class="main">
+    <main class="main" id="home-page">
       <section class="movie-list"></section>
       <section class="movie-details"></section>
     </main>
     <footer class="footer">
       <p class="copyrights">
-        Created by Jonathan and Ismael under AGPL-3.0 license <br />
+        Created by Jonathan and Ismail under AGPL-3.0 license <br />
         &copy; 2022. Some rights reserved.
       </p>
     </footer>
