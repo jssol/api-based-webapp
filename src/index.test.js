@@ -4,7 +4,7 @@
 
 import countItems from './modules/_mocks_/countItemsFunc.js';
 
-let movies = [];
+const movies = [];
 
 const setComment = (movies, comment, id) => {
   const ids = movies.map((movie) => movie.id);
@@ -16,9 +16,9 @@ const setComment = (movies, comment, id) => {
       }
     });
   } else {
-    const movie  = {
+    const movie = {
       comments: [],
-      id
+      id,
     };
     movie.comments.push(comment);
     movies.push(movie);
