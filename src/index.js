@@ -61,7 +61,7 @@ const displayMovies = (title) => {
   getData(title)
     .then((res) => {
       movieList.innerHTML = '';
-      res.forEach((movie, i) => {
+      res.forEach((movie) => {
         movieList.innerHTML += `<article id="${movie.imdbID}" class="movie">
                                 <img class="movie-poster" src="${movie.Poster}"/>
                                 <div class="l-c-buttons">
