@@ -10,9 +10,8 @@
     <!-- <section class="overlay"></section> -->
     <header class="header">
       <a class="logo" href="./index.html">
-        <img class="logo-img" src="logo-transparent.png" alt="logo"/>
+        <img class="logo-img" src="logo-transparent.png" alt="logo" />
       </a>
-      <button class="nav-toggle btn"><span class="hamburger"></span></button>
       <nav class="nav">
         <ul class="nav-list">
           <li class="nav-list-item">Movies(<span class="movies-count item-count">0</span>)</li>
@@ -21,11 +20,25 @@
           <li class="nav-list-item search"><input class="search-input" type="search" placeholder="Search a movie..." /></li>
         </ul>
       </nav>
+      <span class="mobile_menu_btn">menu</span>
+      <div class="mobile_menu">
+        <span class="menu_close">X</span>
+        <ul class="mobile_menu_items">
+          <li class="menu_item">Movies(<span class="movies-count item-count">0</span>)</li>
+          <li class="menu_item">Series(<span class="series-count item-count">0</span>)</li>
+          <li class="menu_item">Games(<span class="games-count item-count">0</span>)</li>
+          <li class="menu_item search"><input class="search-input" type="search" placeholder="Search a movie..." /></li>
+        </ul>
+      </div>
     </header>
     <main class="main" id="home-page">
       <section class="movie-list"></section>
       <section class="movie-details"></section>
     </main>
+    <div class="prev-next-btn">
+      <button class="prev" type="button">< Prev</button>
+      <button class="next" type="button">Next ></button>
+    </div>
     <footer class="footer">
       <p class="copyrights">
         Created by Jonathan and Ismail under AGPL-3.0 license <br />
