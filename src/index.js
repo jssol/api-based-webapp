@@ -1,14 +1,17 @@
 import './index.css';
 import './assets/img/logo-transparent.png';
 import { getData, getMovieData } from './modules/api.js';
-import {
-  getLikes, getComments, setComment, setLikes,
-} from './modules/involvement.api.js';
+import { getLikes, getComments, setComment, setLikes } from './modules/involvement.api.js';
 
 const movieList = document.querySelector('.movie-list');
 const movieDetails = document.querySelector('.movie-details');
 const page = document.documentElement;
 const searchMovie = document.querySelector('.search-input');
+const prev = document.querySelector('.prev');
+const next = document.querySelector('.next');
+let movieName = 'marvel';
+let prevNum = 1;
+let nextNum = 2;
 
 // Function to count number of element on the page
 const countItems = (items) => {
@@ -62,28 +65,27 @@ const commentsCount = (comments) => {
 };
 
 const showComments = async (id) => {
-  getComments(id)
-    .then((comments) => {
-      const count = commentsCount(comments);
-      document.getElementById('comments-count').innerHTML = '';
-      if (comments.length > 0) {
-        comments.forEach((comment) => {
-          const li = document.createElement('li');
-          li.className = 'comment';
-          li.innerHTML = `${comment.creation_date} ${comment.username}: ${comment.comment}`;
-          document.getElementById('comments-count').innerHTML = count;
-          document.querySelector('.comments-list').appendChild(li);
-        });
-      } else {
-        document.querySelector('.comments-list').innerHTML = 'No comments yet!';
-        document.querySelector('.comments-list').className = 'empty';
-        document.getElementById('comments-count').innerHTML = '0';
-      }
-    });
+  getComments(id).then((comments) => {
+    const count = commentsCount(comments);
+    document.getElementById('comments-count').innerHTML = '';
+    if (comments.length > 0) {
+      comments.forEach((comment) => {
+        const li = document.createElement('li');
+        li.className = 'comment';
+        li.innerHTML = `${comment.creation_date} ${comment.username}: ${comment.comment}`;
+        document.getElementById('comments-count').innerHTML = count;
+        document.querySelector('.comments-list').appendChild(li);
+      });
+    } else {
+      document.querySelector('.comments-list').innerHTML = 'No comments yet!';
+      document.querySelector('.comments-list').className = 'empty';
+      document.getElementById('comments-count').innerHTML = '0';
+    }
+  });
 };
 
-const displayMovies = (title) => {
-  getData(title)
+const displayMovies = (title, page) => {
+  getData(title, page)
     .then((res) => {
       movieList.innerHTML = '';
       res.forEach((movie) => {
@@ -177,20 +179,45 @@ document.addEventListener('DOMContentLoaded', () => {
   displayMovies('marvel');
 });
 
-searchMovie.addEventListener('input', () => {
-  if (searchMovie.value === '') {
-    displayMovies('marvel');
-  } else {
-    displayMovies(searchMovie.value);
+searchMovie.addEventListener('keypress', (e) => {
+  if (e.key === 'Enter') {
+    movieName = searchMovie.value;
+    if (searchMovie.value === '') {
+      displayMovies('marvel');
+    } else {
+      displayMovies(movieName);
+    }
+  }
+});
+
+prev.addEventListener('click', () => {
+  displayMovies(movieName, prevNum);
+  prevNum -= 1;
+  nextNum -= 1;
+  if (prevNum <= 1) {
+    prev.setAttribute('disabled', '');
+  }
+});
+
+next.addEventListener('click', () => {
+  displayMovies(movieName, nextNum);
+  prevNum += 1;
+  nextNum += 1;
+  if (prevNum > 1) {
+    prev.removeAttribute('disabled', '');
   }
 });
 
 document.addEventListener('click', (e) => {
   if (e.target && e.target.classList.contains('comment-btn')) {
+    prev.style.display = 'none';
+    next.style.display = 'none';
     showComment(e.target);
   }
 
   if (e.target && (e.target.classList.contains('pop-close-btn') || e.target.classList.contains('pop-close'))) {
+    prev.style.display = 'block';
+    next.style.display = 'block';
     page.classList.remove('comment-open');
   }
 });
