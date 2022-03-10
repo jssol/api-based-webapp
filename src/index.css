@@ -203,8 +203,8 @@ body {
   display: flex;
   flex-direction: column;
   margin: 2em auto;
-  width: 80%;
-  height: 75vh;
+  width: 90%;
+  height: 95vh;
   overflow: hidden;
   background-color: rgba(255, 255, 255, 0.2);
   backdrop-filter: blur(0.5em);
@@ -216,7 +216,7 @@ body {
 
 .main-popup-content {
   display: flex;
-  column-gap: 2.5em;
+  flex-direction: column;
   height: 100%;
 }
 
@@ -235,7 +235,7 @@ body {
 
 .poster-div:hover .movie-poster {
   width: 105%;
-  transition: width 300ms ease-in-out;
+  transition: width 1000ms ease-in-out;
 }
 
 .movie-title {
@@ -309,12 +309,15 @@ body {
 .movie-img {
   border-radius: 0.75em;
   overflow: hidden;
+  height: 100em;
+  margin: 2em 0;
 }
 
 .m-poster {
   width: 320px;
   height: 100%;
   object-fit: cover;
+  object-position: top;
 }
 
 .m-title-plot {
@@ -323,10 +326,10 @@ body {
   flex-direction: column;
   row-gap: 0.5em;
   align-items: flex-start;
-  width: 60%;
+  width: 100%;
   overflow-x: hidden;
   overflow-y: auto;
-  padding-right: 2em;
+  padding-right: 1em;
 }
 
 .m-title-plot::-webkit-scrollbar {
@@ -382,7 +385,7 @@ body {
 
 .comment {
   font-size: 0.75em;
-  width: 90%;
+  width: 100%;
   color: #e0e0e0;
 }
 
@@ -464,7 +467,7 @@ body {
 }
 
 #name {
-  width: 35%;
+  width: 100%;
   border: none;
   padding: 0.5em 1em;
   min-height: 1em;
@@ -476,7 +479,7 @@ body {
 
 .comment-input {
   resize: none;
-  width: 80%;
+  width: 100%;
   min-height: 5em;
   border: none;
   padding: 0.75em 1em;
@@ -593,6 +596,46 @@ body {
 
   .movie-popup {
     margin: 4em auto 0;
+    width: 80%;
+    height: 75vh;
+  }
+
+  .main-popup-content {
+    display: flex;
+    flex-direction: row;
+    column-gap: 2.5em;
+    height: 100%;
+  }
+
+  .movie-img {
+    border-radius: 0.75em;
+    overflow: hidden;
+    height: initial;
+    margin: 0;
+  }
+
+  .m-poster {
+    width: 320px;
+    height: 100%;
+    object-fit: cover;
+    object-position: initial;
+  }
+
+  .m-title-plot {
+    width: 60%;
+    padding-right: 2em;
+  }
+
+  #name {
+    width: 35%;
+  }
+
+  .comment-input {
+    width: 80%;
+  }
+
+  .comment {
+    width: 90%;
   }
 
   /* End Main section */
