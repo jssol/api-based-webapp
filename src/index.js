@@ -1,6 +1,8 @@
 import './index.css';
 import { getData, getMovieData } from './modules/api.js';
-import { getLikes, getComments, setComment, setLikes } from './modules/involvement.api.js';
+import {
+  getLikes, getComments, setComment, setLikes,
+} from './modules/involvement.api.js';
 
 const movieList = document.querySelector('.movie-list');
 const movieDetails = document.querySelector('.movie-details');
@@ -26,7 +28,6 @@ const likeCount = (id, index, Likes) => {
       like = data.likes;
     }
   });
-  console.log(like);
   document.querySelectorAll('.likes-data').forEach((card, i) => {
     if (index === i) {
       card.innerHTML = like;
@@ -78,10 +79,7 @@ const displayMovies = (title) => {
     })
     .then(() => {
       getLikes()
-        .then((result) => {
-          console.log(result);
-          return result;
-        })
+        .then((result) => result)
         .then((LikesArr) => {
           document.querySelectorAll('.like-btn').forEach((btn, i) => {
             likeCount(btn.parentElement.parentElement.id, i, LikesArr);
@@ -89,9 +87,7 @@ const displayMovies = (title) => {
               if (btn.style.color !== 'red') {
                 setLikes(btn.parentElement.parentElement.id).then(() => {
                   getLikes()
-                    .then((result) => {
-                      return result;
-                    })
+                    .then((result) => result)
                     .then((res) => {
                       btn.style.color = 'red';
                       likeCount(btn.parentElement.parentElement.id, i, res);
