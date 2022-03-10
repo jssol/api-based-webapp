@@ -1,17 +1,43 @@
 import './index.css';
 import './assets/img/logo-transparent.png';
 import { getData, getMovieData } from './modules/api.js';
-import { getLikes, getComments, setComment, setLikes } from './modules/involvement.api.js';
+import {
+  getLikes, getComments, setComment, setLikes,
+} from './modules/involvement.api.js';
 
 const movieList = document.querySelector('.movie-list');
 const movieDetails = document.querySelector('.movie-details');
 const page = document.documentElement;
-const searchMovie = document.querySelector('.search-input');
+const searchMovie = document.querySelectorAll('.search-input');
+const menuButton = document.querySelector('.mobile_menu_btn');
+const mobileMenu = document.querySelector('.mobile_menu');
+const remButton = document.querySelector('.menu_close');
 const prev = document.querySelector('.prev');
 const next = document.querySelector('.next');
 let movieName = 'marvel';
 let prevNum = 2;
 let nextNum = 2;
+
+// Mobile Menu
+// transition styles
+mobileMenu.style.right = '-800px';
+mobileMenu.style.transition = 'right 800ms';
+
+// listen for a click on the menu button and X button
+menuButton.addEventListener('click', () => {
+  mobileMenu.style.display = 'block';
+  setTimeout(() => {
+    mobileMenu.style.right = '0px';
+  }, 1);
+});
+
+remButton.addEventListener('click', () => {
+  mobileMenu.style.right = '-800px';
+  setTimeout(() => {
+    mobileMenu.style.display = 'none';
+  }, 900);
+  menuButton.style.display = 'block';
+});
 
 // Function to count number of element on the page
 const countItems = (items) => {
@@ -27,12 +53,18 @@ const countItems = (items) => {
       gameCount += 1;
     }
   });
-  const moviesCount = document.querySelector('.movies-count');
-  const seriesCount = document.querySelector('.series-count');
-  const gamesCount = document.querySelector('.games-count');
-  moviesCount.innerHTML = movieCount;
-  seriesCount.innerHTML = serieCount;
-  gamesCount.innerHTML = gameCount;
+  const moviesCount = document.querySelectorAll('.movies-count');
+  const seriesCount = document.querySelectorAll('.series-count');
+  const gamesCount = document.querySelectorAll('.games-count');
+  moviesCount.forEach((counter) => {
+    counter.innerHTML = movieCount;
+  });
+  seriesCount.forEach((counter) => {
+    counter.innerHTML = serieCount;
+  });
+  gamesCount.forEach((counter) => {
+    counter.innerHTML = gameCount;
+  });
   return { movieCount, serieCount, gameCount };
 };
 
@@ -179,15 +211,22 @@ document.addEventListener('DOMContentLoaded', () => {
   displayMovies('marvel');
 });
 
-searchMovie.addEventListener('keypress', (e) => {
-  if (e.key === 'Enter') {
-    movieName = searchMovie.value;
-    if (searchMovie.value === '') {
-      displayMovies('marvel');
-    } else {
-      displayMovies(movieName);
+searchMovie.forEach((searchInput) => {
+  searchInput.addEventListener('keypress', (e) => {
+    if (e.key === 'Enter') {
+      movieName = searchInput.value;
+      if (searchInput.value === '') {
+        displayMovies('marvel');
+      } else {
+        displayMovies(movieName);
+      }
+      mobileMenu.style.right = '-800px';
+      setTimeout(() => {
+        mobileMenu.style.display = 'none';
+      }, 900);
+      menuButton.style.display = 'block';
     }
-  }
+  });
 });
 
 prev.addEventListener('click', () => {
@@ -228,5 +267,13 @@ document.addEventListener('submit', (e) => {
     const identifier = e.target.className;
     setComment(identifier, document.querySelector('.comment-input').value, document.querySelector('.name-input').value);
     e.target.reset();
+  }
+});
+
+window.addEventListener('resize', () => {
+  if (window.innerWidth > 600) {
+    menuButton.style.display = 'none';
+  } else {
+    menuButton.style.display = 'block';
   }
 });
