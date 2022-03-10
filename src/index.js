@@ -10,7 +10,7 @@ const searchMovie = document.querySelector('.search-input');
 const prev = document.querySelector('.prev');
 const next = document.querySelector('.next');
 let movieName = 'marvel';
-let prevNum = 1;
+let prevNum = 2;
 let nextNum = 2;
 
 // Function to count number of element on the page

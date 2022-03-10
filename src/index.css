@@ -158,6 +158,19 @@ body {
 /* End Header section */
 
 /* Main Section */
+.prev-next-btn {
+  margin: 100px 10px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.prev,
+.next {
+  padding: 10px 40px;
+  border-radius: 20px;
+}
+
 .main {
   display: flex;
   align-items: center;
