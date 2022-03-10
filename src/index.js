@@ -1,7 +1,9 @@
 import './index.css';
 import './assets/img/logo-transparent.png';
 import { getData, getMovieData } from './modules/api.js';
-import { getLikes, getComments, setComment } from './modules/involvement.api.js';
+import {
+  getLikes, getComments, setComment, setLikes,
+} from './modules/involvement.api.js';
 
 const movieList = document.querySelector('.movie-list');
 const movieDetails = document.querySelector('.movie-details');
@@ -20,24 +22,19 @@ const countItems = (arr) => {
 };
 
 // Function to get & display lakes on the home page
-const likeCount = (item, id, index) => {
-  getLikes()
-    .then((result) => {
-      let like = 0;
-      result.forEach((data) => {
-        if (data.item_id === id) {
-          like = data.likes;
-        }
-      });
-      return like;
-    })
-    .then((likes) => {
-      document.querySelectorAll('.likes-data').forEach((card, i) => {
-        if (index === i) {
-          card.innerHTML = likes;
-        }
-      });
-    });
+
+const likeCount = (id, index, Likes) => {
+  let like = 0;
+  Likes.forEach((data) => {
+    if (data.item_id === id) {
+      like = data.likes;
+    }
+  });
+  document.querySelectorAll('.likes-data').forEach((card, i) => {
+    if (index === i) {
+      card.innerHTML = like;
+    }
+  });
 };
 
 const showComments = async (id) => {
@@ -59,7 +56,7 @@ const showComments = async (id) => {
     document.getElementById('comments-count').innerHTML = commentsCount;
   });
 };
-
+// setLikes();
 const displayMovies = (title) => {
   getData(title)
     .then((res) => {
@@ -77,12 +74,32 @@ const displayMovies = (title) => {
                                     <li class="movie-year">${movie.Year}</li>
                                 </ul>
                             </article>`;
-        likeCount(movie, movie.imdbID, i);
       });
       return res;
     })
     .then((movieList) => {
       countItems(movieList);
+    })
+    .then(() => {
+      getLikes()
+        .then((result) => result)
+        .then((LikesArr) => {
+          document.querySelectorAll('.like-btn').forEach((btn, i) => {
+            likeCount(btn.parentElement.parentElement.id, i, LikesArr);
+            btn.addEventListener('click', () => {
+              if (btn.style.color !== 'red') {
+                setLikes(btn.parentElement.parentElement.id).then(() => {
+                  getLikes()
+                    .then((result) => result)
+                    .then((res) => {
+                      btn.style.color = 'red';
+                      likeCount(btn.parentElement.parentElement.id, i, res);
+                    });
+                });
+              }
+            });
+          });
+        });
     });
 };
 

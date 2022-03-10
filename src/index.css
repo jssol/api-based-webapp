@@ -178,11 +178,20 @@ body {
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+  cursor: default;
+}
+
+.likes-data {
+  color: #fff;
 }
 
 .type-year {
   list-style: none;
   display: flex;
+}
+
+.movie-year {
+  margin-left: 10px;
 }
 
 .movie-meta-info {
