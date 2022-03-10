@@ -77,7 +77,7 @@ body {
 .header {
   display: flex;
   align-items: center;
-  justify-content: flex-start;
+  justify-content: space-between;
   padding: 1em 2em;
   width: 100%;
   background-color: var(--black);
@@ -85,7 +85,7 @@ body {
 }
 
 .logo {
-  border: 2px var(--white) solid;
+  border: 1px var(--white) solid;
   border-radius: 50%;
   padding: 1em;
   width: 2em;
@@ -94,6 +94,10 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+.logo-img {
+  width: 100px;
 }
 
 .nav {
@@ -107,15 +111,41 @@ body {
   align-items: center;
 }
 
-.nav-list-item {
+.nav-list-item,
+.home-link {
+  font-size: 22px;
+  font-weight: 600;
   padding: 0.5em;
   display: flex;
   align-items: center;
   justify-content: center;
+  cursor: pointer;
+  transition: color 1s ease;
+  text-decoration: none;
+  color: var(--clr-primary);
+}
+
+.nav-list-item:hover {
+  color: #3e3e3e;
 }
 
 .nav-list-item + .nav-list-item {
   margin-left: 0.75em;
+}
+
+.search {
+  display: flex;
+  width: 200px;
+  justify-content: flex-end;
+}
+
+.search-input {
+  width: 200px;
+  padding: 7px;
+  background-color: rgba(62, 62, 62, 0.4);
+  outline: none;
+  border: 2px solid #fff;
+  border-radius: 20px;
 }
 
 /* End Header section */
@@ -185,6 +215,12 @@ body {
   font-size: var(--fs-subtitle);
   font-weight: var(--fw-bold);
   text-align: start;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.likes-data {
+  color: #fff;
 }
 
 .type-year {
@@ -200,6 +236,10 @@ body {
 
 .movie-year {
   margin-left: 0.25em;
+}
+
+.movie-year {
+  margin-left: 10px;
 }
 
 .movie-meta-info {
