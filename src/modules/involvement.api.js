@@ -44,4 +44,6 @@ const setComment = async (movieID, comment, name) => {
   return status;
 };
 
-export { getLikes, getComments, setComment, setLikes };
+export {
+  getLikes, getComments, setComment, setLikes,
+};

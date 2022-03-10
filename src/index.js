@@ -1,7 +1,9 @@
 import './index.css';
 import './assets/img/logo-transparent.png';
 import { getData, getMovieData } from './modules/api.js';
-import { getLikes, getComments, setComment, setLikes } from './modules/involvement.api.js';
+import {
+  getLikes, getComments, setComment, setLikes,
+} from './modules/involvement.api.js';
 
 const movieList = document.querySelector('.movie-list');
 const movieDetails = document.querySelector('.movie-details');
@@ -38,7 +40,7 @@ const likeCount = (id, index, Likes) => {
 const commentsCount = (comments) => {
   let count = 0;
   if (comments.length > 0) {
-    comments.forEach((comment) => {
+    comments.forEach(() => {
       count += 1;
     });
   } else {
@@ -49,24 +51,23 @@ const commentsCount = (comments) => {
 
 const showComments = async (id) => {
   getComments(id)
-  .then((comments) => {
-    const count = commentsCount(comments);
-    document.getElementById('comments-count').innerHTML = '';
-    if (comments.length > 0) {
-      comments.forEach((comment) => {
-        const li = document.createElement('li');
-        li.className = 'comment';
-        li.innerHTML = `${comment.creation_date} ${comment.username}: ${comment.comment}`;
-        document.getElementById('comments-count').innerHTML = count;
-        document.querySelector('.comments-list').appendChild(li);
-      });
-    } else {
-      document.querySelector('.comments-list').innerHTML = 'No comments yet!';
-      document.querySelector('.comments-list').className = 'empty';
-      document.getElementById('comments-count').innerHTML = '0';
-    }
-  });
-  
+    .then((comments) => {
+      const count = commentsCount(comments);
+      document.getElementById('comments-count').innerHTML = '';
+      if (comments.length > 0) {
+        comments.forEach((comment) => {
+          const li = document.createElement('li');
+          li.className = 'comment';
+          li.innerHTML = `${comment.creation_date} ${comment.username}: ${comment.comment}`;
+          document.getElementById('comments-count').innerHTML = count;
+          document.querySelector('.comments-list').appendChild(li);
+        });
+      } else {
+        document.querySelector('.comments-list').innerHTML = 'No comments yet!';
+        document.querySelector('.comments-list').className = 'empty';
+        document.getElementById('comments-count').innerHTML = '0';
+      }
+    });
 };
 
 const displayMovies = (title) => {
