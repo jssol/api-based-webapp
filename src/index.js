@@ -11,14 +11,26 @@ const page = document.documentElement;
 const searchMovie = document.querySelector('.search-input');
 
 // Function to count number of element on the page
-const countItems = (arr) => {
-  let count = 0;
-  arr.forEach(() => {
-    count += 1;
+const countItems = (items) => {
+  let movieCount = 0;
+  let serieCount = 0;
+  let gameCount = 0;
+  items.forEach((item) => {
+    if (item.Type === 'movie') {
+      movieCount += 1;
+    } else if (item.Type === 'series') {
+      serieCount += 1;
+    } else if (item.Type === 'game') {
+      gameCount += 1;
+    }
   });
   const moviesCount = document.querySelector('.movies-count');
-  moviesCount.innerHTML = count;
-  return count;
+  const seriesCount = document.querySelector('.series-count');
+  const gamesCount = document.querySelector('.games-count');
+  moviesCount.innerHTML = movieCount;
+  seriesCount.innerHTML = serieCount;
+  gamesCount.innerHTML = gameCount;
+  return { movieCount, serieCount, gameCount };
 };
 
 // Function to get & display lakes on the home page
