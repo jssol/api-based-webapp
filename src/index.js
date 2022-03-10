@@ -136,7 +136,11 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 searchMovie.addEventListener('input', () => {
-  displayMovies(searchMovie.value);
+  if (searchMovie.value === '') {
+    displayMovies('marvel');
+  } else {
+    displayMovies(searchMovie.value);
+  }
 });
 
 document.addEventListener('click', (e) => {
