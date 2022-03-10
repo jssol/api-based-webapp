@@ -526,73 +526,74 @@ body {
 
 @media only screen and (min-width: 992px) {
   /* Css reset */
-:root {
-  --fs-title: 2em;
-  --fs-subtitle: 1.35em;
-  --fs-text: 1.125em;
-}
+  :root {
+    --fs-title: 2em;
+    --fs-subtitle: 1.35em;
+    --fs-text: 1.125em;
+  }
 
   /* Header section */
-.header {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 0.5em 2em;
-}
+  .header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.5em 2em;
+  }
 
-.logo {
-  border: 1px var(--white) solid;
-  border-radius: 50%;
-  padding: 1.5em;
-  width: 3em;
-  height: 3em;
-  text-align: center;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  overflow: hidden;
-  background-color: var(--white);
-}
+  .logo {
+    border: 1px var(--white) solid;
+    border-radius: 50%;
+    padding: 1.5em;
+    width: 3em;
+    height: 3em;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    background-color: var(--white);
+  }
 
-.logo-img {
-  width: 72px;
-  height: auto;
-  object-fit: contain;
-}
+  .logo-img {
+    width: 72px;
+    height: auto;
+    object-fit: contain;
+  }
 
-.nav-toggle {
-  display: none;
-}
+  .nav-toggle {
+    display: none;
+  }
 
-.nav {
-  display: flex;
-  align-items: center;
-  margin-left: 2em;
-}
-/* End Header section */
+  .nav {
+    display: flex;
+    align-items: center;
+    margin-left: 2em;
+  }
 
-/* Main section */
+  /* End Header section */
 
-.movie-list {
-  display: grid;
-  margin: 4em 0 3em;
-  grid-template-columns: repeat(4, minmax(10em, 25%));
-  gap: 1.5em;
-  width: 85%;
-}
+  /* Main section */
 
-.movie {
-  background-color: var(--clr-dark);
-  color: var(--white);
-  border-radius: 0.75em;
-  padding: 0.75em;
-  filter: brightness(1.2);
-  width: initial;
-}
+  .movie-list {
+    display: grid;
+    margin: 4em 0 3em;
+    grid-template-columns: repeat(4, minmax(10em, 25%));
+    gap: 1.5em;
+    width: 85%;
+  }
 
-.movie-popup {
-  margin: 4em auto 0;
-}
+  .movie {
+    background-color: var(--clr-dark);
+    color: var(--white);
+    border-radius: 0.75em;
+    padding: 0.75em;
+    filter: brightness(1.2);
+    width: initial;
+  }
 
-/* End Main section */
+  .movie-popup {
+    margin: 4em auto 0;
+  }
+
+  /* End Main section */
 }
