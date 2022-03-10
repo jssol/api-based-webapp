@@ -1,4 +1,5 @@
 import './index.css';
+import './assets/img/logo-transparent.png';
 import { getData, getMovieData } from './modules/api.js';
 import {
   getLikes, getComments, setComment, setLikes,
@@ -7,6 +8,7 @@ import {
 const movieList = document.querySelector('.movie-list');
 const movieDetails = document.querySelector('.movie-details');
 const page = document.documentElement;
+const searchMovie = document.querySelector('.search-input');
 
 // Function to count number of element on the page
 const countItems = (arr) => {
@@ -58,6 +60,7 @@ const showComments = async (id) => {
 const displayMovies = (title) => {
   getData(title)
     .then((res) => {
+      movieList.innerHTML = '';
       res.forEach((movie) => {
         movieList.innerHTML += `<article id="${movie.imdbID}" class="movie">
                                 <img class="movie-poster" src="${movie.Poster}"/>
@@ -145,7 +148,17 @@ const showComment = (btn) => {
   showComments(movieId);
 };
 
-document.addEventListener('DOMContentLoaded', displayMovies('marvel'));
+document.addEventListener('DOMContentLoaded', () => {
+  displayMovies('marvel');
+});
+
+searchMovie.addEventListener('input', () => {
+  if (searchMovie.value === '') {
+    displayMovies('marvel');
+  } else {
+    displayMovies(searchMovie.value);
+  }
+});
 
 document.addEventListener('click', (e) => {
   if (e.target && e.target.classList.contains('comment-btn')) {
