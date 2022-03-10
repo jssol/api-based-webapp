@@ -4,6 +4,39 @@
 
 import countItems from './modules/_mocks_/countItemsFunc.js';
 
+let movies = [];
+
+const setComment = (movies, comment, id) => {
+  const ids = movies.map((movie) => movie.id);
+
+  if (ids.includes(id)) {
+    movies.forEach((movie) => {
+      if (movie.id === id) {
+        movie.comments.push(comment);
+      }
+    });
+  } else {
+    const movie  = {
+      comments: [],
+      id
+    };
+    movie.comments.push(comment);
+    movies.push(movie);
+  }
+};
+
+const commentsCount = (comments) => {
+  let count = 0;
+  if (comments.length > 0) {
+    comments.forEach(() => {
+      count += 1;
+    });
+  } else {
+    count = 0;
+  }
+  return count;
+};
+
 const Search = [
   {
     Title: 'batman',
@@ -67,5 +100,38 @@ describe('Test countItems() function', () => {
   });
   test('Gives the right number of items from the API', () => {
     expect(countItems(Search)).toEqual(4);
+  });
+});
+
+describe('Test the commentsCount() function', () => {
+  test('Add one comment to a movie with id "zlatan"', () => {
+    setComment(movies, 'Good', 'zlatan');
+    movies.forEach((movie) => {
+      if (movie.id === 'zlatan') {
+        expect(commentsCount(movie.comments)).toEqual(1);
+      }
+    });
+  });
+
+  test('Add two comments to a movie with id "messi"', () => {
+    setComment(movies, 'Amazing', 'messi');
+    setComment(movies, 'Gooall', 'messi');
+    movies.forEach((movie) => {
+      if (movie.id === 'messi') {
+        expect(commentsCount(movie.comments)).toEqual(2);
+      }
+    });
+  });
+
+  test('Add four comments to a movie with id "ronaldo"', () => {
+    setComment(movies, 'Madrid', 'ronaldo');
+    setComment(movies, 'Madere', 'ronaldo');
+    setComment(movies, 'United', 'ronaldo');
+    setComment(movies, 'Juve', 'ronaldo');
+    movies.forEach((movie) => {
+      if (movie.id === 'ronaldo') {
+        expect(commentsCount(movie.comments)).toEqual(4);
+      }
+    });
   });
 });
