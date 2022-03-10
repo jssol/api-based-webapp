@@ -7,6 +7,7 @@
   --clr-second: #ff6b6b;
   --clr-third: #008f6d;
   --clr-dark: #161636;
+  --clr-body: rgba(62, 62, 62, 0.1);
   --white: #fafaff;
   --black: #1c1d21;
   --fs-title: 2em;
@@ -34,7 +35,7 @@ body {
   overflow-x: hidden;
   font-family: Hubballi, sans-serif;
   font-size: var(--fs-text);
-  background-color: var(--white);
+  background-color: var(--clr-body);
   color: var(--black);
 }
 
@@ -57,7 +58,7 @@ body {
   background-image: url(./assets/img/bg.jpg);
   background-position: top;
   background-size: cover;
-  filter: blur(5px);
+  filter: blur(50px);
 }
 
 .list {
@@ -77,6 +78,7 @@ body {
   position: fixed;
   top: 0;
   z-index: 10;
+  box-shadow: 1px 1px 10px #3e3e3e;
 }
 
 .logo {
