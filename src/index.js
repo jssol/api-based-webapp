@@ -220,19 +220,11 @@ searchMovie.forEach((searchInput) => {
       } else {
         displayMovies(movieName);
       }
-      if (window.innerWidth > 600) {
-        menuButton.style.display = 'none';
-      } else {
-        mobileMenu.style.right = '-800px';
-        setTimeout(() => {
-          mobileMenu.style.display = 'none';
-        }, 900);
-        menuButton.style.display = 'block';
-      }
       mobileMenu.style.right = '-800px';
       setTimeout(() => {
         mobileMenu.style.display = 'none';
       }, 900);
+      menuButton.style.display = 'block';
     }
   });
 });
