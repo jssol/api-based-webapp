@@ -1,7 +1,9 @@
 import './index.css';
 import './assets/img/logo-transparent.png';
 import { getData, getMovieData } from './modules/api.js';
-import { getLikes, getComments, setComment, setLikes } from './modules/involvement.api.js';
+import {
+  getLikes, getComments, setComment, setLikes,
+} from './modules/involvement.api.js';
 
 const movieList = document.querySelector('.movie-list');
 const movieDetails = document.querySelector('.movie-details');
