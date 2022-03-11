@@ -76,13 +76,13 @@ npm run deploy
 
 ## Authors
 
-👤 **Author1**
+👤 **Jonathan Sivahera**
 
-- GitHub: [@githubhandle](https://github.com/githubhandle)
-- Twitter: [@twitterhandle](https://twitter.com/twitterhandle)
-- LinkedIn: [LinkedIn](https://linkedin.com/in/linkedinhandle)
+- GitHub: [@jssol](https://github.com/jssol)
+- Twitter: [@jsivahera](https://twitter.com/jsivahera)
+- LinkedIn: [jsivahera](https://linkedin.com/in/jsivahera)
 
-👤 **Author2**
+👤 **Ismail Courr**
 
 - GitHub: [@ismailco](https://github.com/ismailco)
 - Twitter: [@ismailcourr](https://twitter.com/ismailcourr)
@@ -104,4 +104,4 @@ This project uses the OMDb API
 
 ## 📝 License
 
-This project is [AGPL](./LICENSE) licensed.
+This project is [AGPL-3.0](./LICENSE) licensed.
