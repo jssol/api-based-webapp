@@ -19,9 +19,10 @@
 - Webpack
 - OMDbAPI/Involvment API
 
-## Live Demo
+## Useful links
 
-[Live Demo Link](https://jssol.github.io/api-based-webapp/)
+- [Live Demo Link](https://jssol.github.io/api-based-webapp/)
+- [Video Introduction](./project-intro.mp4)
 
 ## Getting Started
 
