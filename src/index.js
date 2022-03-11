@@ -1,9 +1,7 @@
 import './index.css';
 import './assets/img/logo-transparent.png';
 import { getData, getMovieData } from './modules/api.js';
-import {
-  getLikes, getComments, setComment, setLikes,
-} from './modules/involvement.api.js';
+import { getLikes, getComments, setComment, setLikes } from './modules/involvement.api.js';
 
 const movieList = document.querySelector('.movie-list');
 const movieDetails = document.querySelector('.movie-details');
@@ -220,11 +218,19 @@ searchMovie.forEach((searchInput) => {
       } else {
         displayMovies(movieName);
       }
+      if (window.innerWidth > 600) {
+        menuButton.style.display = 'none';
+      } else {
+        mobileMenu.style.right = '-800px';
+        setTimeout(() => {
+          mobileMenu.style.display = 'none';
+        }, 900);
+        menuButton.style.display = 'block';
+      }
       mobileMenu.style.right = '-800px';
       setTimeout(() => {
         mobileMenu.style.display = 'none';
       }, 900);
-      menuButton.style.display = 'block';
     }
   });
 });
