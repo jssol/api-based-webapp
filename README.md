@@ -1,53 +1,97 @@
+# Javascript Captsone: Film Guru
+
 ![](https://img.shields.io/badge/Microverse-blueviolet)
 
-# Project Name
+> This project is the second capstone project from Microverse. We created a webapp for movies enthusiast so they can search and find their favorite movies. The project uses OMDb API to get info about movies, and 'involvment' API to Send & get likes and comments.
 
-> Description the project.
+## Screenshots
 
+- **Homepage**
+![home-screeshot](./Screenshot1.png)
+
+- **Movie popup**
+![movie-popup](./Screenshot2.png)
 
 ## Built With
 
 - HTML/CSS
 - JavaScript
 - Webpack
-- API
+- OMDbAPI/Involvment API
 
-## Live Demo (if available)
+## Useful links
 
-[Live Demo Link](https://livedemo.com)
-
+- [Live Demo Link](https://jssol.github.io/api-based-webapp/)
+- [Video Introduction](./project-intro.mp4)
 
 ## Getting Started
 
-**This is an example of how you may give instructions on setting up your project locally.**
-**Modify this file to match your project, remove sections that don't apply. For example: delete the testing section if the currect project doesn't require testing.**
-
-
-To get a local copy up and running follow these simple example steps.
-
 ### Prerequisites
+
+You need to have a browser and this tools installed:
+
+- git
+- Node
 
 ### Setup
 
-### Install
+To get a local copy up and running follow these simple example steps:
+
+```
+$ git clone git@github.com:jssol/api-based-webapp.git
+```
+
+```
+$ cd api-based-webapp
+```
+
+```
+$ npm i
+```
+
+```
+$ npm start
+```
 
 ### Usage
 
+To build a version of the website under Development mode:
+
+```
+$ npm run dev
+```
+
+To build the production version:
+
+```
+$ npm run build
+```
+
 ### Run tests
+
+To run tests in terminal use:
+
+```
+npm test
+```
 
 ### Deployment
 
+To deploy the project to Githubpages run:
 
+```
+npm run deploy
+```
 
 ## Authors
 
-👤 **Author1**
+👤 **Jonathan Sivahera**
 
-- GitHub: [@githubhandle](https://github.com/githubhandle)
-- Twitter: [@twitterhandle](https://twitter.com/twitterhandle)
-- LinkedIn: [LinkedIn](https://linkedin.com/in/linkedinhandle)
+- GitHub: [@jssol](https://github.com/jssol)
+- Twitter: [@jsivahera](https://twitter.com/jsivahera)
+- LinkedIn: [jsivahera](https://linkedin.com/in/jsivahera)
 
-👤 **Author2**
+👤 **Ismail Courr**
 
 - GitHub: [@ismailco](https://github.com/ismailco)
 - Twitter: [@ismailcourr](https://twitter.com/ismailcourr)
@@ -65,10 +109,8 @@ Give a ⭐️ if you like this project!
 
 ## Acknowledgments
 
-- Hat tip to anyone whose code was used
-- Inspiration
-- etc
+This project uses the OMDb API
 
 ## 📝 License
 
-This project is [AGPL](./LICENSE) licensed.
+This project is [AGPL-3.0](./LICENSE) licensed.
