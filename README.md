@@ -10,11 +10,12 @@
 - HTML/CSS
 - JavaScript
 - Webpack
-- API
+- OMDbAPI/Involvment API
 
-## Live Demo (if available)
+## Useful links
 
-[Live Demo Link](https://livedemo.com)
+- [Live Demo Link](https://jssol.github.io/api-based-webapp/)
+- [Video Introduction](https://youtu.be/p8N1mAaXhEc)
 
 
 ## Getting Started
