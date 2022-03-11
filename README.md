@@ -2,42 +2,78 @@
 
 # Javascript Captsone: Film Guru
 
-> This project is the second capstone project from Microverse. We created a webapp for movies enthusiast so they can search and find their favorite movies.
-
+> This project is the second capstone project from Microverse. We created a webapp for movies enthusiast so they can search and find their favorite movies. The project uses OMDb API to get info about movies, and 'involvment' API to Send & get likes and comments.
 
 ## Built With
 
 - HTML/CSS
 - JavaScript
 - Webpack
-- API
+- OMDbAPI
+- Involvment API
 
 ## Live Demo (if available)
 
-[Live Demo Link](https://livedemo.com)
-
+[Live Demo Link](https://jssol.github.io/api-based-webapp/)
 
 ## Getting Started
 
-**This is an example of how you may give instructions on setting up your project locally.**
-**Modify this file to match your project, remove sections that don't apply. For example: delete the testing section if the currect project doesn't require testing.**
-
-
-To get a local copy up and running follow these simple example steps.
-
 ### Prerequisites
+
+You need to have a browser and this tools installed:
+
+- git
+- Node
 
 ### Setup
 
-### Install
+To get a local copy up and running follow these simple example steps:
+
+```
+$ git clone git@github.com:jssol/api-based-webapp.git
+```
+
+```
+$ cd api-based-webapp
+```
+
+```
+$ npm i
+```
+
+```
+$ npm start
+```
 
 ### Usage
 
+To build a version of the website under Development mode:
+
+```
+$ npm run dev
+```
+
+To build the production version:
+
+```
+$ npm run build
+```
+
 ### Run tests
+
+To run tests in terminal use:
+
+```
+npm test
+```
 
 ### Deployment
 
+To deploy the project to Githubpages run:
 
+```
+npm run deploy
+```
 
 ## Authors
 
@@ -65,9 +101,7 @@ Give a ⭐️ if you like this project!
 
 ## Acknowledgments
 
-- Hat tip to anyone whose code was used
-- Inspiration
-- etc
+This project uses the OMDb API
 
 ## 📝 License
 
