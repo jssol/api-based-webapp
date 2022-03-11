@@ -1,7 +1,7 @@
-const getData = async (movie) => {
+const getData = async (movie, page) => {
   const key = 'e7db26be';
 
-  const data = await fetch(`https://www.omdbapi.com/?s=${movie}&apikey=${key}`);
+  const data = await fetch(`https://www.omdbapi.com/?s=${movie}&apikey=${key}&page=${page}`);
   const moviesInfo = await data.json();
   return moviesInfo.Search;
 };
