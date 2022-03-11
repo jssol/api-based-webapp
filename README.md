@@ -22,7 +22,7 @@
 ## Useful links
 
 - [Live Demo Link](https://jssol.github.io/api-based-webapp/)
-- [Video Introduction](./project-intro.mp4)
+- [Video Introduction](https://youtu.be/p8N1mAaXhEc)
 
 ## Getting Started
 
