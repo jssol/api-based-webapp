@@ -1,8 +1,8 @@
 ![](https://img.shields.io/badge/Microverse-blueviolet)
 
-# Project Name
+# Javascript Captsone: Film Guru
 
-> Description the project.
+> This project is the second capstone project from Microverse. We created a webapp for movies enthusiast so they can search and find their favorite movies.
 
 
 ## Built With
