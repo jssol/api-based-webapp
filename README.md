@@ -22,7 +22,7 @@
 ## Useful links
 
 - [Live Demo Link](https://jssol.github.io/api-based-webapp/)
-- [Video Introduction](./project-intro.mp4)
+- [Video Introduction](https://youtu.be/p8N1mAaXhEc)
 
 ## Getting Started
 
@@ -30,8 +30,8 @@
 
 You need to have a browser and this tools installed:
 
-- git
-- Node
+- Git
+- NodeJS
 
 ### Setup
 
