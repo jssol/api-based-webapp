@@ -1,16 +1,9 @@
-# Javascript Captsone: Film Guru
-
 ![](https://img.shields.io/badge/Microverse-blueviolet)
 
-> This project is the second capstone project from Microverse. We created a webapp for movies enthusiast so they can search and find their favorite movies. The project uses OMDb API to get info about movies, and 'involvment' API to Send & get likes and comments.
+# Project Name
 
-## Screenshots
+> Description the project.
 
-- **Homepage**
-![home-screeshot](./Screenshot1.png)
-
-- **Movie popup**
-![movie-popup](./Screenshot2.png)
 
 ## Built With
 
@@ -24,74 +17,38 @@
 - [Live Demo Link](https://jssol.github.io/api-based-webapp/)
 - [Video Introduction](https://youtu.be/p8N1mAaXhEc)
 
+
 ## Getting Started
+
+**This is an example of how you may give instructions on setting up your project locally.**
+**Modify this file to match your project, remove sections that don't apply. For example: delete the testing section if the currect project doesn't require testing.**
+
+
+To get a local copy up and running follow these simple example steps.
 
 ### Prerequisites
 
-You need to have a browser and this tools installed:
-
-- git
-- Node
-
 ### Setup
 
-To get a local copy up and running follow these simple example steps:
-
-```
-$ git clone git@github.com:jssol/api-based-webapp.git
-```
-
-```
-$ cd api-based-webapp
-```
-
-```
-$ npm i
-```
-
-```
-$ npm start
-```
+### Install
 
 ### Usage
 
-To build a version of the website under Development mode:
-
-```
-$ npm run dev
-```
-
-To build the production version:
-
-```
-$ npm run build
-```
-
 ### Run tests
-
-To run tests in terminal use:
-
-```
-npm test
-```
 
 ### Deployment
 
-To deploy the project to Githubpages run:
 
-```
-npm run deploy
-```
 
 ## Authors
 
-👤 **Jonathan Sivahera**
+👤 **Author1**
 
-- GitHub: [@jssol](https://github.com/jssol)
-- Twitter: [@jsivahera](https://twitter.com/jsivahera)
-- LinkedIn: [jsivahera](https://linkedin.com/in/jsivahera)
+- GitHub: [@githubhandle](https://github.com/githubhandle)
+- Twitter: [@twitterhandle](https://twitter.com/twitterhandle)
+- LinkedIn: [LinkedIn](https://linkedin.com/in/linkedinhandle)
 
-👤 **Ismail Courr**
+👤 **Author2**
 
 - GitHub: [@ismailco](https://github.com/ismailco)
 - Twitter: [@ismailcourr](https://twitter.com/ismailcourr)
@@ -109,8 +66,10 @@ Give a ⭐️ if you like this project!
 
 ## Acknowledgments
 
-This project uses the OMDb API
+- Hat tip to anyone whose code was used
+- Inspiration
+- etc
 
 ## 📝 License
 
-This project is [AGPL-3.0](./LICENSE) licensed.
+This project is [AGPL](./LICENSE) licensed.
