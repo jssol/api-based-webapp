@@ -1,8 +1,16 @@
-![](https://img.shields.io/badge/Microverse-blueviolet)
-
 # Javascript Captsone: Film Guru
 
+![](https://img.shields.io/badge/Microverse-blueviolet)
+
 > This project is the second capstone project from Microverse. We created a webapp for movies enthusiast so they can search and find their favorite movies. The project uses OMDb API to get info about movies, and 'involvment' API to Send & get likes and comments.
+
+## Screenshots
+
+- **Homepage**
+![home-screeshot](./Screenshot1.png)
+
+- **Movie popup**
+![movie-popup](./Screenshot2.png)
 
 ## Built With
 
