@@ -265,6 +265,10 @@ body {
   align-items: center;
 }
 
+.comment-open .prev-next-btn {
+  display: none;
+}
+
 .prev,
 .next {
   padding: 10px 40px;
@@ -302,9 +306,8 @@ body {
 .movie-popup {
   display: flex;
   flex-direction: column;
-  margin: 4em auto 0;
+  margin: 4em auto 2em;
   width: 90%;
-  height: 95vh;
   overflow: hidden;
   background-color: rgba(255, 255, 255, 0.2);
   backdrop-filter: blur(0.5em);
@@ -409,14 +412,13 @@ body {
 .movie-img {
   border-radius: 0.75em;
   overflow: hidden;
-  height: 100em;
   margin: 2em 0;
+  height: 40vh;;
 }
 
 .m-poster {
   width: 320px;
-  height: 100%;
-  object-fit: cover;
+  object-fit: contain;
   object-position: top;
 }
 
@@ -427,6 +429,7 @@ body {
   row-gap: 0.5em;
   align-items: flex-start;
   width: 100%;
+  height: 65vh;
   overflow-x: hidden;
   overflow-y: auto;
   padding-right: 1em;
@@ -712,6 +715,7 @@ body {
   .m-title-plot {
     width: 60%;
     padding-right: 2em;
+    height: 100%;
   }
 
   #name {
