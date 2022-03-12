@@ -168,8 +168,8 @@ body {
   border-radius: 20px;
   font-weight: 700;
   display: flex;
-  flex-direction: center;
   align-items: center;
+  justify-content: center;
   cursor: pointer;
 }
 
@@ -413,7 +413,7 @@ body {
   border-radius: 0.75em;
   overflow: hidden;
   margin: 2em 0;
-  height: 40vh;;
+  height: 40vh;
 }
 
 .m-poster {
