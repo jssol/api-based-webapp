@@ -204,8 +204,9 @@ const showComment = (btn) => {
           </section>
         </section>
       </article>`;
+  }).finally(() => {
+    showComments(movieId);
   });
-  showComments(movieId);
 };
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -274,8 +275,10 @@ document.addEventListener('submit', (e) => {
   if (e.target && e.target.id === 'add-comment-form') {
     e.preventDefault();
     const identifier = e.target.className;
-    setComment(identifier, document.querySelector('.comment-input').value, document.querySelector('.name-input').value);
-    showComments(identifier);
+    setComment(identifier, document.querySelector('.comment-input').value, document.querySelector('.name-input').value)
+    .finally(() => {
+      showComments(identifier);
+    });
     e.target.reset();
   }
 });
