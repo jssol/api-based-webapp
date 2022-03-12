@@ -276,9 +276,9 @@ document.addEventListener('submit', (e) => {
     e.preventDefault();
     const identifier = e.target.className;
     setComment(identifier, document.querySelector('.comment-input').value, document.querySelector('.name-input').value)
-    .finally(() => {
-      showComments(identifier);
-    });
+      .finally(() => {
+        showComments(identifier);
+      });
     e.target.reset();
   }
 });
