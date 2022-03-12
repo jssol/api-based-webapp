@@ -101,6 +101,7 @@ const showComments = async (id) => {
     const count = commentsCount(comments);
     document.getElementById('comments-count').innerHTML = '';
     if (comments.length > 0) {
+      document.querySelector('.comments-list').innerHTML = '';
       comments.forEach((comment) => {
         const li = document.createElement('li');
         li.className = 'comment';
@@ -274,6 +275,7 @@ document.addEventListener('submit', (e) => {
     e.preventDefault();
     const identifier = e.target.className;
     setComment(identifier, document.querySelector('.comment-input').value, document.querySelector('.name-input').value);
+    showComments(identifier);
     e.target.reset();
   }
 });
