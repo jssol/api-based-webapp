@@ -17,7 +17,7 @@
 ## Built With
 
 - HTML/CSS
-- JavaScript
+- JavaScript(ES6)
 - Webpack
 - OMDbAPI and Involvment API
 
