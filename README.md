@@ -19,7 +19,7 @@
 - HTML/CSS
 - JavaScript
 - Webpack
-- OMDbAPI/Involvment API
+- OMDbAPI and Involvment API
 
 ## Useful links
 
