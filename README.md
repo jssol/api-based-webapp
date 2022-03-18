@@ -7,6 +7,7 @@
 ## Screenshots
 
 - **Homepage**
+- 
 ![home-screeshot](./Screenshot1.png)
 
 - **Movie popup**
