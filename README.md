@@ -11,6 +11,7 @@
 ![home-screeshot](./Screenshot1.png)
 
 - **Movie popup**
+
 ![movie-popup](./Screenshot2.png)
 
 ## Built With
