@@ -7,17 +7,19 @@
 ## Screenshots
 
 - **Homepage**
+
 ![home-screeshot](./Screenshot1.png)
 
 - **Movie popup**
+
 ![movie-popup](./Screenshot2.png)
 
 ## Built With
 
 - HTML/CSS
-- JavaScript
+- JavaScript(ES6)
 - Webpack
-- OMDbAPI/Involvment API
+- OMDbAPI and Involvment API
 
 ## Useful links
 
