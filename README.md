@@ -111,7 +111,7 @@ Give a ⭐️ if you like this project!
 
 ## Acknowledgments
 
-This project uses the OMDb API
+This project uses the OMDb API.
 
 ## 📝 License
 
