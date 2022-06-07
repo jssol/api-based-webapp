@@ -2,7 +2,7 @@
 
 ![](https://img.shields.io/badge/Microverse-blueviolet)
 
-> This project is the second capstone project from Microverse. We created a webapp for movies enthusiast so they can search and find their favorite movies. The project uses OMDb API to get info about movies, and 'involvment' API to Send & get likes and comments
+> This project is the second capstone project from Microverse. We created a webapp for movies enthusiast so they can search and find their favorite movies. The project uses OMDb API to get info about movies, and 'involvment' API to Send & get likes and comments.
 
 ## Screenshots
 
